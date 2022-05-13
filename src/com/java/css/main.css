@@ -204,5 +204,29 @@
     -fx-spacing: 12;
 }
 
+.context-menu {
+    -fx-background-radius: 0;
+    -fx-background-color: -color-menu-background;
+    -fx-background-insets: 0;
+    -fx-padding: 0.3333em  0.0833em 0.3333em  0.0833em;
+    -fx-border-color: -color-menu-border;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 5, 5);
+    -fx-font-weight: normal;
+}
+
+.context-menu .text {
+    -fx-fill: -text-color;
+    -fx-font-weight: normal;
+}
+
+.context-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.context-menu .menu-item:hover {
+    -fx-background-color: rgba(41, 171, 226, 0.2);
+    -fx-border-color: transparent;
+}
 
 

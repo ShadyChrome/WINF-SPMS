@@ -20,5 +20,6 @@ public class StudentProjectManagementSystem extends Application {
     primaryStage.setMinWidth(1024);
     primaryStage.setMaximized(true);
     primaryStage.show();
+    scene.getRoot().requestFocus();
   }
 }

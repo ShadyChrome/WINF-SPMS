@@ -13,8 +13,13 @@ public class MainPage {
   }
 
   private void init() {
-    content.setTop(new ApplicationBarPage().getContent());
-    content.setCenter(new WorkSpacePage().getContent());
+    ApplicationBarPage applicationBarPage = new ApplicationBarPage();
+    BorderPane container = new BorderPane();
+    container.setTop(applicationBarPage.getContent());
+    container.setCenter(new WorkSpacePage().getContent());
+    content.setCenter(container);
+    content.setRight(new ActionPage().getContent());
+    applicationBarPage.init();
   }
 
   public Pane getContent() {
