@@ -2,12 +2,19 @@ package com.java.utility;
 
 import com.java.actions.ActionItem;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleNode;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.List;
 
@@ -49,5 +56,52 @@ public class UIFactory {
     toggleNode.setToggleGroup(toggleGroup);
     toggleNode.setOnAction(event -> PropertyFactory.firePropertyChange(property, null, null));
     return toggleNode;
+  }
+
+  public static Label createFormularSubtitle(String text) {
+    Label label = new Label(text);
+    label.getStyleClass().add("subtitle-formular");
+    return label;
+  }
+
+  public static Label createFormularLabel(String text) {
+    return createFormularLabel(text, false);
+  }
+
+  public static Label createFormularLabel(String text, boolean wrapText) {
+    Label label = new Label(text);
+    label.setWrapText(wrapText);
+    label.getStyleClass().add("labelText");
+    return label;
+  }
+
+  public static Label createFormularHilfeLabel(String text) {
+    Label label = new Label(text);
+    label.getStyleClass().add("labelTextHilfe");
+    return label;
+  }
+
+  public static HBox createHBoxContainer(Node... nodes) {
+    HBox hBox = new HBox();
+    hBox.setAlignment(Pos.CENTER_LEFT);
+    hBox.setSpacing(12);
+    hBox.getChildren().addAll(nodes);
+    return hBox;
+  }
+
+  public static VBox createFormularVBox(Node... nodes) {
+    return new VBox(nodes);
+  }
+
+  public static JFXTextArea createFormularTextArea() {
+    JFXTextArea textArea = new JFXTextArea();
+    textArea.setPromptText("Hier ausfüllen...");
+    return textArea;
+  }
+
+  public static JFXTextField createFormularTextField() {
+    JFXTextField textField = new JFXTextField();
+    textField.getStyleClass().add("formular-text-field");
+    return textField;
   }
 }

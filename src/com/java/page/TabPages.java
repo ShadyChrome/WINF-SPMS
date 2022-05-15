@@ -9,6 +9,7 @@ public interface TabPages {
   String TRENDS_PAGE_PROPERTY = "trends_page_property";
   String TEAM_MITGLIED_PAGE_PROPERTY = "team_mitglied_page_property";
   String TEAM_PAGE_PROPERTY = "team_page_property";
+  String NEW_TEAM_MEMBER_PROPERTY = "new_team_member_property";
 
   Node getLeftNode();
 

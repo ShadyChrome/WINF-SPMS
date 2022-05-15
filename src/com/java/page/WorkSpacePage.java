@@ -31,8 +31,10 @@ public class WorkSpacePage {
 
     PropertyFactory.addPropertyChangeListener(evt -> {
       TabPages workSpacePage = pageMap.get(evt.getPropertyName());
-      root.setLeft(workSpacePage.getLeftNode());
-      root.setCenter(workSpacePage.getCenterNode());
+      if (workSpacePage != null) {
+        root.setLeft(workSpacePage.getLeftNode());
+        root.setCenter(workSpacePage.getCenterNode());
+      }
     });
   }
 

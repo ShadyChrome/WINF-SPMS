@@ -1,6 +1,5 @@
 package com.java.page;
 
-import com.java.components.HBoxContainer;
 import com.java.data.ImagesEnum;
 import com.java.utility.IconFactory;
 import com.jfoenix.controls.JFXButton;
@@ -15,6 +14,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import static com.java.utility.UIFactory.createHBoxContainer;
+
 public class ActionPage {
 
   private VBox content;
@@ -27,9 +28,9 @@ public class ActionPage {
   }
 
   private void init() {
-    this.content.getChildren().addAll(new HBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
+    this.content.getChildren().addAll(createHBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
         new Separator(),
-        new HBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
+        createHBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
         new Separator(),
         createButton("Fehler melden", new ImageView(IconFactory.getImage(ImagesEnum.REPORT))),
         createButton("Frage stellen", new ImageView(IconFactory.getImage(ImagesEnum.HELP))),

@@ -3,19 +3,36 @@
 }
 
 .title {
-    -fx-font-size: 18px;
+    -fx-font-size: 16px;
     -fx-font-weight: bold;
     -fx-text-fill: -color-bar;
 }
 
-.label-headline {
+.title-formular {
+    -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-font-size: 16px;
+    -fx-text-fill: -text-color;
 }
 
-.root {
-    -fx-background-color: -text-color-inv;
-    -fx-font-size: 12px;
+.subtitle-formular {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-color;
+}
+
+.titledesc {
+    -fx-font-size: 20px;
+    -fx-text-fill: -text-color;
+}
+
+.labelText {
+    -fx-font-size: 18px;
+    -fx-text-fill: -text-color;
+}
+
+.labelTextHilfe {
+    -fx-font-size: 16px;
+    -fx-text-fill: gray;
 }
 
 .scroll-pane,
@@ -229,4 +246,46 @@
     -fx-border-color: transparent;
 }
 
+.jfx-text-area,
+.formular-text-field {
+    -fx-border-radius: 20px;
+    -fx-border-color: #CCCCCC;
+    -fx-padding: 0.333333em 1em 0.333333em 1em;
+}
 
+.jfx-text-area > .input-line,
+.formular-text-field > .input-line {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0px;
+    -fx-translate-y: 0px;
+}
+
+.jfx-text-area > .input-focused-line,
+.formular-text-field > .input-focused-line {
+    -fx-background-color: transparent;
+    -fx-pref-height: 0px;
+}
+
+.team-mitglied-container-allgemein {
+    -fx-background-color: rgb(46, 117, 182);
+}
+
+.team-mitglied-name {
+    -fx-text-fill: -text-color-inv;
+    -fx-font-size: 24px;
+}
+
+.team-mitglied-belbin {
+    -fx-text-fill: -text-color-inv;
+    -fx-font-size: 20px;
+    -fx-font-style: italic;
+}
+
+.team-mitglied-allgemein {
+    -fx-text-fill: -text-color-inv;
+    -fx-font-size: 20px;
+}
+
+.stack-pane {
+    -fx-background-color: linear-gradient(to top, rgb(46, 117, 182) 0%, rgb(46, 117, 182) 50%, -text-color-inv 50%);
+}

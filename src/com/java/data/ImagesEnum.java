@@ -7,6 +7,9 @@ public enum ImagesEnum {
   REPORT("/com/java/resources/images/alert.png"),
   HELP("/com/java/resources/images/help.png"),
   PROPOSAL("/com/java/resources/images/lightbulb.png"),
+  MIMOSA("/com/java/resources/images/mimosa.png"),
+  LINH("/com/java/resources/images/linh.png"),
+  LISA("/com/java/resources/images/lisa.png"),
   ;
 
   private final String path;
