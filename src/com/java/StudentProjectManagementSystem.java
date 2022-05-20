@@ -16,8 +16,7 @@ public class StudentProjectManagementSystem extends Application {
 
     primaryStage.setScene(scene);
     primaryStage.setTitle("SPMS");
-    primaryStage.setMinHeight(960);
-    primaryStage.setHeight(960);
+    primaryStage.setHeight(600);
     primaryStage.setMinWidth(1280);
     primaryStage.setWidth(1280);
     primaryStage.show();

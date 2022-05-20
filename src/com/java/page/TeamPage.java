@@ -5,6 +5,7 @@ import com.java.data.ImagesEnum;
 import com.java.data.TeamMitglied;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;

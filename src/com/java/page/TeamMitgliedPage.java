@@ -2,7 +2,9 @@ package com.java.page;
 
 import com.java.components.IntegerTextField;
 import com.java.data.BelbinRollenEnum;
+import com.java.data.ImagesEnum;
 import com.java.data.TeamMitglied;
+import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -125,21 +127,22 @@ public class TeamMitgliedPage implements TabPages {
         new Separator(), absendenContainer
     );
 
-    List<String> stärkeList = new ArrayList<>();
-    for (String line : stärkeTa.getText().split("\\n")) {
-      stärkeList.add(line);
-    }
+    button.setOnAction(event -> {
+      List<String> stärkeList = new ArrayList<>();
+      for (String line : stärkeTa.getText().split("\\n")) {
+        stärkeList.add(line);
+      }
 
-    List<String> schwächeList = new ArrayList<>();
-    for (String line : schwächeTa.getText().split("\\n")) {
-      schwächeList.add(line);
-    }
-
-    button.setOnAction(event -> PropertyFactory.firePropertyChange(NEW_TEAM_MEMBER_PROPERTY, null,
-        new TeamMitglied(null, nameTf.getText(), alterTf.getNumberInt(), semesterTf.getNumberInt(),
-            berufTf.getText(), berufFirma.getText(), belbinCb.getSelectionModel().getSelectedItem().toString(),
-            projectTa.getText(), stärkeList, schwächeList,
-            new ArrayList<>(Arrays.asList(eisbrecherTierTf.getText(), eisbrecherFilmTf.getText(), eisbrecherSuperkraftTf.getText())))));
+      List<String> schwächeList = new ArrayList<>();
+      for (String line : schwächeTa.getText().split("\\n")) {
+        schwächeList.add(line);
+      }
+      PropertyFactory.firePropertyChange(NEW_TEAM_MEMBER_PROPERTY, null,
+          new TeamMitglied(imageView.getImage() != null ? imageView.getImage() : IconFactory.getImage(ImagesEnum.DEFAULT), nameTf.getText(), alterTf.getNumberInt(), semesterTf.getNumberInt(),
+              berufTf.getText(), berufFirma.getText(), belbinCb.getSelectionModel().getSelectedItem().toString(),
+              projectTa.getText(), stärkeList, schwächeList,
+              new ArrayList<>(Arrays.asList(eisbrecherTierTf.getText(), eisbrecherFilmTf.getText(), eisbrecherSuperkraftTf.getText()))));
+    });
 
     scrollPane.setContent(container);
     scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);

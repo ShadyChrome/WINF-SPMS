@@ -17,15 +17,8 @@ public class IconFactory {
 
   public enum ImageTransformAction {
     NONE,
-    COLOR_WHITE(255, 255, 255),
-    COLOR_ICON(51, 51, 51),
-    COLOR_CREATE(246, 146, 30),
-    COLOR_READ(0, 113, 187),
-    COLOR_UPDATE(0, 148, 69), //to match Admin State Up icon, original: 0, 145, 60
-    COLOR_DELETE(192, 39, 45),
-    COLOR_BUTTON(0, 0, 0),
-    COLOR_YELLOW(255, 255, 0),
-    COLOR_ICON_WEB(117, 117, 117);
+    COLOR_MAIN(46, 117, 182)
+    ;
 
     private final boolean transform;
     final int r;

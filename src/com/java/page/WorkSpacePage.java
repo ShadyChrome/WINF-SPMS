@@ -33,7 +33,10 @@ public class WorkSpacePage {
       TabPages workSpacePage = pageMap.get(evt.getPropertyName());
       if (workSpacePage != null) {
         root.setLeft(workSpacePage.getLeftNode());
-        root.setCenter(workSpacePage.getCenterNode());
+        Node centerNode = workSpacePage.getCenterNode();
+        root.setCenter(centerNode);
+        centerNode.impl_reapplyCSS();
+        centerNode.applyCss();
       }
     });
   }

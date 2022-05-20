@@ -10,6 +10,12 @@ public enum ImagesEnum {
   MIMOSA("/com/java/resources/images/mimosa.png"),
   LINH("/com/java/resources/images/linh.png"),
   LISA("/com/java/resources/images/lisa.png"),
+  PLUS("/com/java/resources/images/plus.png"),
+  MINUS("/com/java/resources/images/minus.png"),
+  PFOTE("/com/java/resources/images/pfote.png"),
+  FILM("/com/java/resources/images/film.png"),
+  SUPERKRAFT("/com/java/resources/images/superkraft.png"),
+  DEFAULT("/com/java/resources/images/default.jpg"),
   ;
 
   private final String path;

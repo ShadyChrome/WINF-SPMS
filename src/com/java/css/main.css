@@ -286,6 +286,28 @@
     -fx-font-size: 20px;
 }
 
+.team-mitglied-zitat {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 16px;
+    -fx-font-style: italic;
+}
+
 .stack-pane {
     -fx-background-color: linear-gradient(to top, rgb(46, 117, 182) 0%, rgb(46, 117, 182) 50%, -text-color-inv 50%);
+}
+
+.team-mitglied-container {
+    -fx-background-color: rgb(242, 242, 242);
+    -fx-background-radius: 10;
+}
+
+.team-mitglied-stärke-schwäche {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 16px;
+}
+
+.team-mitglied-eisbrecher {
+    -fx-text-fill: -text-color;
+    -fx-font-size: 18px;
+    -fx-graphic-text-gap: 12;
 }
