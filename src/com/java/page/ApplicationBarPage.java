@@ -54,21 +54,11 @@ public class ApplicationBarPage {
     });
 
     firstToggleButton = createToggleButton(toggleGroup, "1. INNOVATION", INNOVATION_PAGE_PROPERTY);
-    content.getChildren().addAll(logo, createMenuButton("PROJECT", Collections.singletonList(new ActionItem("Team", new Runnable() {
-          @Override
-          public void run() {
-            PropertyFactory.firePropertyChange(TEAM_PAGE_PROPERTY, null, null);
-          }
-        }))), titleSpacer, firstToggleButton,
+    content.getChildren().addAll(logo, createMenuButton("PROJECT", Collections.singletonList(new ActionItem("Team", () -> PropertyFactory.firePropertyChange(TEAM_PAGE_PROPERTY, null, null)))), titleSpacer, firstToggleButton,
         createToggleButton(toggleGroup, "2. AS-IS", AS_IS_PAGE_PROPERTY),
         createToggleButton(toggleGroup, "3. TO-BE", TO_BE_PAGE_PROPERTY),
         createToggleButton(toggleGroup, "4. TRENDS", TRENDS_PAGE_PROPERTY),
-        titleSpacer2, createMenuButton("INPUT PM", Collections.singletonList(new ActionItem("Neues Teammitglied", new Runnable() {
-          @Override
-          public void run() {
-            PropertyFactory.firePropertyChange(TEAM_MITGLIED_PAGE_PROPERTY, null, null);
-          }
-        })))
+        titleSpacer2, createMenuButton("INPUT PM", Collections.singletonList(new ActionItem("Neues Teammitglied", () -> PropertyFactory.firePropertyChange(TEAM_MITGLIED_PAGE_PROPERTY, null, null))))
     );
 
     content.setAlignment(Pos.CENTER_LEFT);

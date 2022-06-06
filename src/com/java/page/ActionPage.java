@@ -1,7 +1,9 @@
 package com.java.page;
 
+import com.java.actions.ActionItem;
 import com.java.data.ImagesEnum;
 import com.java.utility.IconFactory;
+import com.java.utility.PropertyFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
@@ -32,10 +34,12 @@ public class ActionPage {
         new Separator(),
         createHBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
         new Separator(),
-        createButton("Fehler melden", new ImageView(IconFactory.getImage(ImagesEnum.REPORT))),
-        createButton("Frage stellen", new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
-        createButton("Vorschlag machen", new ImageView(IconFactory.getImage(ImagesEnum.PROPOSAL))),
-        new Separator());
+        createButton(new ActionItem("Fehler melden", null), new ImageView(IconFactory.getImage(ImagesEnum.REPORT))),
+        createButton(new ActionItem("Frage stellen", null), new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
+        createButton(new ActionItem("Vorschlag machen", null), new ImageView(IconFactory.getImage(ImagesEnum.PROPOSAL))),
+        new Separator(),
+        createButton(new ActionItem("FAQ", () -> PropertyFactory.firePropertyChange(TabPages.FAQ_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ)))
+        );
     this.content.setSpacing(6);
   }
 
@@ -49,8 +53,9 @@ public class ActionPage {
     return comboBox;
   }
 
-  private JFXButton createButton(String text, Node graphic) {
-    JFXButton button = new JFXButton(text, graphic);
+  private JFXButton createButton(ActionItem actionItem, Node graphic) {
+    JFXButton button = new JFXButton(actionItem.getName(), graphic);
+    button.setOnAction(event -> actionItem.getRunnable().run());
     button.setMaxWidth(Double.MAX_VALUE);
     button.setAlignment(Pos.CENTER_LEFT);
 

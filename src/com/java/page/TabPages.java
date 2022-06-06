@@ -10,6 +10,7 @@ public interface TabPages {
   String TEAM_MITGLIED_PAGE_PROPERTY = "team_mitglied_page_property";
   String TEAM_PAGE_PROPERTY = "team_page_property";
   String NEW_TEAM_MEMBER_PROPERTY = "new_team_member_property";
+  String FAQ_PAGE_PROPERTY = "faq_page_property";
 
   Node getLeftNode();
 

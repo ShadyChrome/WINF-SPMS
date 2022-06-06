@@ -16,6 +16,8 @@ public enum ImagesEnum {
   FILM("/com/java/resources/images/film.png"),
   SUPERKRAFT("/com/java/resources/images/superkraft.png"),
   DEFAULT("/com/java/resources/images/default.jpg"),
+  ARROW_OPEN("/com/java/resources/images/arrow-open.png"),
+  FAQ("/com/java/resources/images/faq.png"),
   ;
 
   private final String path;

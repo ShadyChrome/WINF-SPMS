@@ -39,8 +39,6 @@ public class UIFactory {
       contextMenu.getItems().add(menuItem);
     }
 
-    contextMenu.getItems().add(new MenuItem("Test"));
-
     menuButton.setOnAction(event -> {
       if (contextMenu.isShowing()) {
         contextMenu.hide();
