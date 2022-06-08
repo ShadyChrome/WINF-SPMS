@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 import java.util.List;
 
-public class TeamMitglied {
+public class TeamMitgliedDTO {
 
   private Image image;
   private String name;
@@ -18,7 +18,7 @@ public class TeamMitglied {
   private final List<String> schwäche;
   private final List<String> eisbrecher;
 
-  public TeamMitglied(Image image, String name, int alter, int semester, String beruf, String firma, String belbin, String projekt, List<String> stärke, List<String> schwäche, List<String> eisbrecher) {
+  public TeamMitgliedDTO(Image image, String name, int alter, int semester, String beruf, String firma, String belbin, String projekt, List<String> stärke, List<String> schwäche, List<String> eisbrecher) {
     this.image = image;
     this.name = name;
     this.alter = alter;

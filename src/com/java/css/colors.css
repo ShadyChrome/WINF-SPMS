@@ -11,9 +11,9 @@
     -color-scrollbar-pressed: rgb(229, 229, 229);
 
     -fx-basic-color: red;
-    -fx-darker-color: derive(-fx-basic-color, -40% );
-    -fx-lighter-color: derive(-fx-basic-color, 80% );
-    -fx-lightest-color: derive(-fx-basic-color, 95% );
+    -fx-darker-color: derive(-fx-basic-color, -40%);
+    -fx-lighter-color: derive(-fx-basic-color, 80%);
+    -fx-lightest-color: derive(-fx-basic-color, 95%);
     -fx-dark-text-color: rgb(47.0, 52.0, 57.0);
     -fx-text-color: rgb(67.0, 72.0, 77.0);
     -fx-light-gray-color: rgb(200.0, 200.0, 200.0);

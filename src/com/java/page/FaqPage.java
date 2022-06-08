@@ -20,8 +20,7 @@ public class FaqPage implements TabPages {
       new Pair<>("Wann ist das Programm endlich fertig?", "Never :)")));
 
   public FaqPage() {
-    VBox vBox = UIFactory.createFormularVBox();
-    vBox.setSpacing(12);
+    VBox vBox = UIFactory.createFormularVBox(12);
 
     int i = 1;
     for (Pair<String, String> frageAntwort : faqList) {
@@ -29,9 +28,7 @@ public class FaqPage implements TabPages {
       i++;
     }
 
-    scrollPane = new ScrollPane(vBox);
-    this.scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-    this.scrollPane.setFitToWidth(true);
+    scrollPane = UIFactory.createScrollPane(vBox);
   }
 
   @Override

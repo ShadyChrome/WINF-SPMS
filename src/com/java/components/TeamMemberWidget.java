@@ -1,8 +1,9 @@
 package com.java.components;
 
 import com.java.data.ImagesEnum;
-import com.java.data.TeamMitglied;
+import com.java.data.TeamMitgliedDTO;
 import com.java.utility.IconFactory;
+import com.java.utility.UIFactory;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -22,27 +23,23 @@ public class TeamMemberWidget {
   private VBox content;
   private List<ImagesEnum> images = new ArrayList<>(Arrays.asList(ImagesEnum.PFOTE, ImagesEnum.FILM, ImagesEnum.SUPERKRAFT));
 
-  public TeamMemberWidget(TeamMitglied teamMitglied) {
-    this.content = new VBox();
-    this.content.setAlignment(Pos.TOP_CENTER);
-    this.content.setSpacing(12);
-
-    Label name = new Label(teamMitglied.getName());
+  public TeamMemberWidget(TeamMitgliedDTO teamMitgliedDTO) {
+    Label name = new Label(teamMitgliedDTO.getName());
     name.getStyleClass().add("team-mitglied-name");
-    Label belbin = new Label(teamMitglied.getBelbin());
+    Label belbin = new Label(teamMitgliedDTO.getBelbin());
     belbin.getStyleClass().add("team-mitglied-belbin");
     Label spacer = new Label("");
-    Label alter = new Label(teamMitglied.getAlter() + " Jahre");
+    Label alter = new Label(teamMitgliedDTO.getAlter() + " Jahre");
     alter.getStyleClass().add("team-mitglied-allgemein");
-    Label semester = new Label(teamMitglied.getSemester() + ". Semester");
+    Label semester = new Label(teamMitgliedDTO.getSemester() + ". Semester");
     semester.getStyleClass().add("team-mitglied-allgemein");
-    Label beruf = new Label(teamMitglied.getBeruf());
+    Label beruf = new Label(teamMitgliedDTO.getBeruf());
     beruf.setWrapText(true);
     beruf.getStyleClass().add("team-mitglied-allgemein");
-    Label firma = new Label("@" + teamMitglied.getFirma());
+    Label firma = new Label("@" + teamMitgliedDTO.getFirma());
     firma.getStyleClass().add("team-mitglied-allgemein");
 
-    ImageView imageView = new ImageView(teamMitglied.getImage());
+    ImageView imageView = new ImageView(teamMitgliedDTO.getImage());
     imageView.setFitWidth(212);
     imageView.setFitHeight(208);
 
@@ -52,7 +49,7 @@ public class TeamMemberWidget {
     allgemeinContainer.getStyleClass().add("team-mitglied-container-allgemein");
     allgemeinContainer.setAlignment(Pos.CENTER);
 
-    Label projekt = new Label("„" + teamMitglied.getProjekt() + "“");
+    Label projekt = new Label("„" + teamMitgliedDTO.getProjekt() + "“");
     projekt.setWrapText(true);
     projekt.getStyleClass().add("team-mitglied-zitat");
     projekt.setAlignment(Pos.CENTER);
@@ -62,32 +59,28 @@ public class TeamMemberWidget {
     stärkeSchwächeContainer.setPadding(new Insets(12));
     stärkeSchwächeContainer.setAlignment(Pos.CENTER);
 
-    for (String string : teamMitglied.getStärke()) {
+    for (String string : teamMitgliedDTO.getStärke()) {
       Label bullet = new Label("\u2022");
       bullet.getStyleClass().add("team-mitglied-stärke-schwäche");
       Label label = new Label(string);
       label.getStyleClass().add("team-mitglied-stärke-schwäche");
       label.setWrapText(true);
 
-      HBox container = new HBox(bullet, label);
-      container.setAlignment(Pos.CENTER_LEFT);
-      container.setSpacing(24);
+      HBox container = UIFactory.createHBoxContainer(24, bullet, label);
       stärkeSchwächeContainer.getChildren().add(container);
       VBox.setMargin(container, new Insets(0, 12, 0, 12));
     }
 
     stärkeSchwächeContainer.getChildren().add(IconFactory.ImageTransformAction.COLOR_MAIN.transform(new ImageView(IconFactory.getImage(ImagesEnum.MINUS))));
 
-    for (String string : teamMitglied.getSchwäche()) {
+    for (String string : teamMitgliedDTO.getSchwäche()) {
       Label bullet = new Label("\u2022");
       bullet.getStyleClass().add("team-mitglied-stärke-schwäche");
       Label label = new Label(string);
       label.getStyleClass().add("team-mitglied-stärke-schwäche");
       label.setWrapText(true);
 
-      HBox container = new HBox(bullet, label);
-      container.setAlignment(Pos.CENTER_LEFT);
-      container.setSpacing(24);
+      HBox container = UIFactory.createHBoxContainer(24, bullet, label);
       stärkeSchwächeContainer.getChildren().add(container);
       VBox.setMargin(container, new Insets(0, 12, 0, 12));
     }
@@ -97,7 +90,7 @@ public class TeamMemberWidget {
     eisbrecherContainer.setAlignment(Pos.CENTER);
 
     for (int i = 0; i < 3; i++) {
-      Label label = new Label(teamMitglied.getEisbrecher().get(i));
+      Label label = new Label(teamMitgliedDTO.getEisbrecher().get(i));
       label.setGraphic(new ImageView(IconFactory.getImage(images.get(i))));
       label.setContentDisplay(ContentDisplay.TOP);
       label.setWrapText(true);
@@ -105,7 +98,8 @@ public class TeamMemberWidget {
       eisbrecherContainer.getChildren().add(label);
     }
 
-    this.content.getChildren().addAll(allgemeinContainer, projekt, stärkeSchwächeContainer, eisbrecherContainer);
+    this.content = UIFactory.createFormularVBox(12, allgemeinContainer, projekt, stärkeSchwächeContainer, eisbrecherContainer);
+    this.content.setAlignment(Pos.TOP_CENTER);
     VBox.setMargin(projekt, new Insets(12));
     VBox.setMargin(stärkeSchwächeContainer, new Insets(24));
   }

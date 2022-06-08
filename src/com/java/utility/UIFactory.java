@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -82,21 +83,19 @@ public class UIFactory {
     return label;
   }
 
-  public static HBox createHBoxContainer(Node... nodes) {
-    HBox hBox = new HBox();
+  public static HBox createHBoxContainer(double spacing, Node... nodes) {
+    HBox hBox = new HBox(spacing, nodes);
     hBox.setAlignment(Pos.CENTER_LEFT);
-    hBox.setSpacing(12);
-    hBox.getChildren().addAll(nodes);
     return hBox;
   }
 
-  public static VBox createFormularVBox(Node... nodes) {
-    return new VBox(nodes);
+  public static VBox createFormularVBox(double spacing, Node... nodes) {
+    return new VBox(spacing, nodes);
   }
 
-  public static JFXTextArea createFormularTextArea() {
+  public static JFXTextArea createFormularTextArea(String promptText) {
     JFXTextArea textArea = new JFXTextArea();
-    textArea.setPromptText("Hier ausfüllen...");
+    textArea.setPromptText(promptText);
     return textArea;
   }
 
@@ -104,6 +103,14 @@ public class UIFactory {
     JFXTextField textField = new JFXTextField();
     textField.getStyleClass().add("formular-text-field");
     return textField;
+  }
+
+  public static ScrollPane createScrollPane(Node content) {
+    ScrollPane scrollPane = new ScrollPane();
+    scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+    scrollPane.setFitToWidth(true);
+    scrollPane.setContent(content);
+    return scrollPane;
   }
 
   public ImageView createRandomImageView() {

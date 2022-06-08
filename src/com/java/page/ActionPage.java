@@ -30,16 +30,17 @@ public class ActionPage {
   }
 
   private void init() {
-    this.content.getChildren().addAll(createHBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
+    this.content.getChildren().addAll(createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
         new Separator(),
-        createHBoxContainer(new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
+        createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
         new Separator(),
         createButton(new ActionItem("Fehler melden", null), new ImageView(IconFactory.getImage(ImagesEnum.REPORT))),
-        createButton(new ActionItem("Frage stellen", null), new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
+        createButton(new ActionItem("Frage stellen", () -> PropertyFactory.firePropertyChange(TabPages.FRAGEN_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
         createButton(new ActionItem("Vorschlag machen", null), new ImageView(IconFactory.getImage(ImagesEnum.PROPOSAL))),
         new Separator(),
+        createButton(new ActionItem("Inbox", () -> PropertyFactory.firePropertyChange(TabPages.INBOX_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ))),
         createButton(new ActionItem("FAQ", () -> PropertyFactory.firePropertyChange(TabPages.FAQ_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ)))
-        );
+    );
     this.content.setSpacing(6);
   }
 

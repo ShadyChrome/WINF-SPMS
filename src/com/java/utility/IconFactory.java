@@ -17,8 +17,7 @@ public class IconFactory {
 
   public enum ImageTransformAction {
     NONE,
-    COLOR_MAIN(46, 117, 182)
-    ;
+    COLOR_MAIN(46, 117, 182);
 
     private final boolean transform;
     final int r;

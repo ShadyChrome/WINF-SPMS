@@ -9,6 +9,8 @@ import java.util.Map;
 
 import static com.java.page.TabPages.AS_IS_PAGE_PROPERTY;
 import static com.java.page.TabPages.FAQ_PAGE_PROPERTY;
+import static com.java.page.TabPages.FRAGEN_PAGE_PROPERTY;
+import static com.java.page.TabPages.INBOX_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_MITGLIED_PAGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_PAGE_PROPERTY;
@@ -29,6 +31,8 @@ public class WorkSpacePage {
     pageMap.put(TEAM_MITGLIED_PAGE_PROPERTY, new TeamMitgliedPage());
     pageMap.put(TEAM_PAGE_PROPERTY, new TeamPage());
     pageMap.put(FAQ_PAGE_PROPERTY, new FaqPage());
+    pageMap.put(FRAGEN_PAGE_PROPERTY, new FragenPage());
+    pageMap.put(INBOX_PAGE_PROPERTY, new InboxPage());
 
     this.root = new BorderPane();
 
