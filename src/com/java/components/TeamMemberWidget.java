@@ -66,7 +66,7 @@ public class TeamMemberWidget {
       label.getStyleClass().add("team-mitglied-stärke-schwäche");
       label.setWrapText(true);
 
-      HBox container = UIFactory.createHBoxContainer(24, bullet, label);
+      HBox container = UIFactory.createHBoxContainer(24, 0, bullet, label);
       stärkeSchwächeContainer.getChildren().add(container);
       VBox.setMargin(container, new Insets(0, 12, 0, 12));
     }
@@ -80,7 +80,7 @@ public class TeamMemberWidget {
       label.getStyleClass().add("team-mitglied-stärke-schwäche");
       label.setWrapText(true);
 
-      HBox container = UIFactory.createHBoxContainer(24, bullet, label);
+      HBox container = UIFactory.createHBoxContainer(24, 0, bullet, label);
       stärkeSchwächeContainer.getChildren().add(container);
       VBox.setMargin(container, new Insets(0, 12, 0, 12));
     }

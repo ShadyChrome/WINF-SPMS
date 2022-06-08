@@ -59,7 +59,7 @@ public class TeamMitgliedPage implements TabPages {
     titleDesc.getStyleClass().add("titledesc");
 
     JFXButton button = new JFXButton("Absenden");
-    HBox absendenContainer = createHBoxContainer(12, button);
+    HBox absendenContainer = createHBoxContainer(12, 0, button);
     absendenContainer.setAlignment(Pos.CENTER);
 
     JFXTextField nameTf = new JFXTextField();
@@ -103,10 +103,10 @@ public class TeamMitgliedPage implements TabPages {
     });
     container.getChildren().addAll(title, titleDesc, new Separator(),
         createFormularSubtitle("Allgemein"), createFormularLabel("Ein paar allgemeine Infos zum Start:"),
-        createFormularVBox(0, createHBoxContainer(12, createFormularLabel("1) Mein Name ist "), nameTf, createFormularLabel(".")),
-            createHBoxContainer(12, createFormularLabel("2) Ich bin "), alterTf, createFormularLabel(" Jahre alt.")),
-            createHBoxContainer(12, createFormularLabel("3) Ich studiere im "), semesterTf, createFormularLabel(" Semester.")),
-            createHBoxContainer(12, createFormularLabel("4) Neben dem Studium arbeite ich als "), berufTf, createFormularLabel(" bei "), berufFirma, createFormularLabel("."))),
+        createFormularVBox(0, createHBoxContainer(12, 0, createFormularLabel("1) Mein Name ist "), nameTf, createFormularLabel(".")),
+            createHBoxContainer(12, 0, createFormularLabel("2) Ich bin "), alterTf, createFormularLabel(" Jahre alt.")),
+            createHBoxContainer(12, 0, createFormularLabel("3) Ich studiere im "), semesterTf, createFormularLabel(" Semester.")),
+            createHBoxContainer(12, 0, createFormularLabel("4) Neben dem Studium arbeite ich als "), berufTf, createFormularLabel(" bei "), berufFirma, createFormularLabel("."))),
         createFormularSubtitle("Foto"),
         createFormularLabel("Lade hier gern ein Foto von dir hoch. So wird die Kommunikation zwischen deinen Teammitgliedern noch persönlicher. Du hast gerade keins zur Hand? Dann erstelle dir doch ein individuelles Icon auf BitMoji.", true),
         imageBtn,

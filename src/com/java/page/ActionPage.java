@@ -34,9 +34,9 @@ public class ActionPage {
   private void init() {
     Pane spacer = new Pane();
     VBox.setVgrow(spacer, Priority.ALWAYS);
-    this.content.getChildren().addAll(createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
+    this.content.getChildren().addAll(createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
         new Separator(),
-        createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
+        createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
         new Separator(),
         createButton(new ActionItem("Fehler melden", null), new ImageView(IconFactory.getImage(ImagesEnum.REPORT))),
         createButton(new ActionItem("Frage stellen", () -> PropertyFactory.firePropertyChange(TabPages.FRAGEN_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
@@ -48,7 +48,7 @@ public class ActionPage {
         spacer,
         new Separator(),
         createButton(new ActionItem("Admin", null), new ImageView(IconFactory.getImage(ImagesEnum.ACCOUNT))),
-        createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.SCHOOL)), createComboBox(FXCollections.observableArrayList(PersonaEnum.values())))
+        createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.SCHOOL)), createComboBox(FXCollections.observableArrayList(PersonaEnum.values())))
     );
     this.content.setSpacing(6);
   }
@@ -65,6 +65,7 @@ public class ActionPage {
 
   private JFXButton createButton(ActionItem actionItem, Node graphic) {
     JFXButton button = new JFXButton(actionItem.getName(), graphic);
+    button.setGraphicTextGap(12);
     button.setOnAction(event -> {
       if (actionItem.getRunnable() != null) actionItem.getRunnable().run();
     });

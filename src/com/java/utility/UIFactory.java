@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleNode;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -83,8 +84,9 @@ public class UIFactory {
     return label;
   }
 
-  public static HBox createHBoxContainer(double spacing, Node... nodes) {
+  public static HBox createHBoxContainer(double spacing, int rightInset, Node... nodes) {
     HBox hBox = new HBox(spacing, nodes);
+    hBox.setPadding(new Insets(0, 0, 0, rightInset));
     hBox.setAlignment(Pos.CENTER_LEFT);
     return hBox;
   }

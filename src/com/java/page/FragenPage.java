@@ -26,16 +26,16 @@ public class FragenPage implements TabPages {
   @Override
   public Node getCenterNode() {
     JFXTextField adressatTf = UIFactory.createFormularTextField();
-    HBox adressatContainer = UIFactory.createHBoxContainer(12, new Label("AN:"), adressatTf);
+    HBox adressatContainer = UIFactory.createHBoxContainer(12, 0, new Label("AN:"), adressatTf);
     HBox.setHgrow(adressatTf, Priority.ALWAYS);
 
     JFXTextField betreffTf = UIFactory.createFormularTextField();
-    HBox betreffContainer = UIFactory.createHBoxContainer(12, new Label("Betreff:"), betreffTf);
+    HBox betreffContainer = UIFactory.createHBoxContainer(12, 0, new Label("Betreff:"), betreffTf);
     HBox.setHgrow(betreffTf, Priority.ALWAYS);
 
     JFXComboBox<FragenStyleEnum> styleCb = new JFXComboBox(FXCollections.observableArrayList(FragenStyleEnum.values()));
     styleCb.getSelectionModel().selectFirst();
-    HBox styleContainer = UIFactory.createHBoxContainer(12, new Label("Style:"), styleCb);
+    HBox styleContainer = UIFactory.createHBoxContainer(12, 0, new Label("Style:"), styleCb);
 
     JFXTextField freiTextTf = UIFactory.createFormularTextField();
     freiTextTf.setPromptText("Deine Frage...");
@@ -47,7 +47,7 @@ public class FragenPage implements TabPages {
     jfxChipView.setVisible(false);
 
     JFXButton button = new JFXButton("Absenden");
-    HBox absendenContainer = createHBoxContainer(12, button);
+    HBox absendenContainer = createHBoxContainer(12, 0, button);
     absendenContainer.setAlignment(Pos.CENTER);
 
     VBox root = UIFactory.createFormularVBox(12, adressatContainer, betreffContainer, styleContainer, freiTextTf, jfxChipView, absendenContainer);
