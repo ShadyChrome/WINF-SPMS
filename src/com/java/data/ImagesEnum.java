@@ -18,6 +18,9 @@ public enum ImagesEnum {
   DEFAULT("/com/java/resources/images/default.jpg"),
   ARROW_OPEN("/com/java/resources/images/arrow-open.png"),
   FAQ("/com/java/resources/images/faq.png"),
+  INBOX("/com/java/resources/images/inbox.png"),
+  ACCOUNT("/com/java/resources/images/account.png"),
+  SCHOOL("/com/java/resources/images/school.png"),
   ;
 
   private final String path;

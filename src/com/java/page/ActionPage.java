@@ -2,6 +2,7 @@ package com.java.page;
 
 import com.java.actions.ActionItem;
 import com.java.data.ImagesEnum;
+import com.java.data.PersonaEnum;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.jfoenix.controls.JFXButton;
@@ -13,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
@@ -30,6 +32,8 @@ public class ActionPage {
   }
 
   private void init() {
+    Pane spacer = new Pane();
+    VBox.setVgrow(spacer, Priority.ALWAYS);
     this.content.getChildren().addAll(createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
         new Separator(),
         createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
@@ -38,8 +42,13 @@ public class ActionPage {
         createButton(new ActionItem("Frage stellen", () -> PropertyFactory.firePropertyChange(TabPages.FRAGEN_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.HELP))),
         createButton(new ActionItem("Vorschlag machen", null), new ImageView(IconFactory.getImage(ImagesEnum.PROPOSAL))),
         new Separator(),
-        createButton(new ActionItem("Inbox", () -> PropertyFactory.firePropertyChange(TabPages.INBOX_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ))),
-        createButton(new ActionItem("FAQ", () -> PropertyFactory.firePropertyChange(TabPages.FAQ_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ)))
+        createButton(new ActionItem("Inbox", () -> PropertyFactory.firePropertyChange(TabPages.INBOX_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.INBOX))),
+        createButton(new ActionItem("FAQ", () -> PropertyFactory.firePropertyChange(TabPages.FAQ_PAGE_PROPERTY, null, null)), new ImageView(IconFactory.getImage(ImagesEnum.FAQ))),
+        new Separator(),
+        spacer,
+        new Separator(),
+        createButton(new ActionItem("Admin", null), new ImageView(IconFactory.getImage(ImagesEnum.ACCOUNT))),
+        createHBoxContainer(12, new ImageView(IconFactory.getImage(ImagesEnum.SCHOOL)), createComboBox(FXCollections.observableArrayList(PersonaEnum.values())))
     );
     this.content.setSpacing(6);
   }
@@ -56,7 +65,9 @@ public class ActionPage {
 
   private JFXButton createButton(ActionItem actionItem, Node graphic) {
     JFXButton button = new JFXButton(actionItem.getName(), graphic);
-    button.setOnAction(event -> actionItem.getRunnable().run());
+    button.setOnAction(event -> {
+      if (actionItem.getRunnable() != null) actionItem.getRunnable().run();
+    });
     button.setMaxWidth(Double.MAX_VALUE);
     button.setAlignment(Pos.CENTER_LEFT);
 
