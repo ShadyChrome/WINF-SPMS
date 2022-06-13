@@ -1,7 +1,7 @@
 package com.java.data;
 
 public enum PersonaEnum {
-  STUDENT("Stundent*in"),
+  STUDENT("Student*in"),
   DOZENT("Dozent*in");
 
   private String text;
