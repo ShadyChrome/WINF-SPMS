@@ -211,6 +211,15 @@
     -fx-text-fill: -text-color-inv;
 }
 
+.action-page-container .jfx-combo-box:showing .list-view .list-cell {
+    -fx-text-fill: -text-color;
+}
+
+.action-page-container .jfx-combo-box:showing .list-view .list-cell:selected,
+.action-page-container .jfx-combo-box:showing .list-view .list-cell:hover {
+    -fx-text-fill: -text-color-inv;
+}
+
 .label-text-area {
     -fx-font-size: 16px;
     -fx-text-fill: rgb(169, 176, 190);
@@ -252,6 +261,7 @@
     -fx-border-radius: 20px;
     -fx-border-color: #CCCCCC;
     -fx-padding: 0.333333em 1em 0.333333em 1em;
+    -fx-prompt-text-fill: #CCCCCC;
 }
 
 .jfx-text-area > .input-line,

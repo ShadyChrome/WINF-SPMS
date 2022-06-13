@@ -21,6 +21,7 @@ public enum ImagesEnum {
   INBOX("/com/java/resources/images/inbox.png"),
   ACCOUNT("/com/java/resources/images/account.png"),
   SCHOOL("/com/java/resources/images/school.png"),
+  DELETE("/com/java/resources/images/delete.png"),
   ;
 
   private final String path;

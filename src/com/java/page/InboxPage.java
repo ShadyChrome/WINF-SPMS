@@ -1,39 +1,30 @@
 package com.java.page;
 
 import com.java.components.InboxListCell;
-import com.java.data.FragenStyleEnum;
+import com.java.data.DataController;
 import com.java.data.NachrichtDTO;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonBase;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class InboxPage implements TabPages {
@@ -47,13 +38,8 @@ public class InboxPage implements TabPages {
     JFXListView<NachrichtDTO> listView = new JFXListView();
     StackPane root = new StackPane(listView);
     listView.setCellFactory(param -> new InboxListCell());
-    ObservableList<NachrichtDTO> list = FXCollections.observableArrayList(
-        new NachrichtDTO("Marcel Koschau", "Jörg Seelenbinder", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null),
-        new NachrichtDTO("Jörg Seelenbinder", "Marcel Koschau", "FAQ", FragenStyleEnum.CHECK_BOX, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
-        new NachrichtDTO("Thuy Linh Phung", "Lisa Spendel", "FAQ", FragenStyleEnum.RADIUS_BUTTON, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
-        new NachrichtDTO("Mimosa Luong", "Thuy Linh Phung", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null)
-        );
-    listView.getItems().addAll(list);
+
+    listView.getItems().addAll(DataController.getINSTANCE().getNachrichten());
 
     JFXDialog dialog = new JFXDialog(root, null, JFXDialog.DialogTransition.CENTER);
 
@@ -76,7 +62,7 @@ public class InboxPage implements TabPages {
 
     Label frageLbl = UIFactory.createFormularLabel(dto.getNachricht(), true);
 
-    VBox container = UIFactory.createFormularVBox(0);
+    VBox container = UIFactory.createFormularVBox(6);
     VBox root = UIFactory.createFormularVBox(12, absenderLbl, betreffLbl, frageLbl, container);
     root.setMinHeight(300);
     root.setMinWidth(400);
@@ -108,12 +94,15 @@ public class InboxPage implements TabPages {
       root.getChildren().add(UIFactory.createFormularTextArea("Hier antworten..."));
     }
 
+    JFXCheckBox faqCb = new JFXCheckBox("Zum FAQ hinzufügen?");
+    faqCb.setCheckedColor(Color.web("rgb(24, 38, 119)"));
+
     JFXButton replyBtn = new JFXButton("Antworten");
     JFXButton deleteBtn = new JFXButton("Löschen");
 
     HBox btnContainer = UIFactory.createHBoxContainer(12, 0, replyBtn, deleteBtn);
     btnContainer.setAlignment(Pos.CENTER);
-    root.getChildren().add(btnContainer);
+    root.getChildren().addAll(faqCb, btnContainer);
 
     return root;
   }

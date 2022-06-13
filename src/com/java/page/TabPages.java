@@ -13,6 +13,8 @@ public interface TabPages {
   String FAQ_PAGE_PROPERTY = "faq_page_property";
   String FRAGEN_PAGE_PROPERTY = "fragen_page_property";
   String INBOX_PAGE_PROPERTY = "inbox_page_property";
+  String SWOT_PAGE_PROPERTY = "swot_page_property";
+  String SWOT_ANALYSE_PAGE_PROPERTY = "swot_analyse_page_property";
 
   Node getLeftNode();
 

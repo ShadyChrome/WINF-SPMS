@@ -1,10 +1,15 @@
 package com.java.components;
 
+import com.java.data.ImagesEnum;
 import com.java.data.NachrichtDTO;
+import com.java.utility.IconFactory;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTooltip;
 import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -17,7 +22,7 @@ public class InboxListCell extends ListCell<NachrichtDTO> {
   private Label absenderLbl = new Label();
   private Label betreffLbl = new Label();
   private Label nachrichtLbl = new Label();
-  private JFXButton deleteBtn = new JFXButton("Löschen");
+  private JFXButton deleteBtn = new JFXButton();
 
   public InboxListCell() {
     super();
@@ -29,6 +34,9 @@ public class InboxListCell extends ListCell<NachrichtDTO> {
     root.setAlignment(Pos.CENTER);
     HBox.setHgrow(spacer, Priority.ALWAYS);
     deleteBtn.setOnAction(event -> getListView().getItems().remove(getItem()));
+    deleteBtn.setGraphic(new ImageView(IconFactory.getImage(ImagesEnum.DELETE)));
+    deleteBtn.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+    deleteBtn.setTooltip(new JFXTooltip("Nachricht löschen"));
   }
 
   @Override
