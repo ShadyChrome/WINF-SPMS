@@ -15,6 +15,7 @@ public interface TabPages {
   String INBOX_PAGE_PROPERTY = "inbox_page_property";
   String SWOT_PAGE_PROPERTY = "swot_page_property";
   String SWOT_ANALYSE_PAGE_PROPERTY = "swot_analyse_page_property";
+  String RISOKO_ANALYSE_PAGE_PROPERTY = "risiko_analyse_page_property";
 
   Node getLeftNode();
 

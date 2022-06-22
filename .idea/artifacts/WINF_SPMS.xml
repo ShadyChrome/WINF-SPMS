@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="WINF-SPMS">
+    <output-path>$PROJECT_DIR$/out/artifacts/WINF_SPMS</output-path>
+    <root id="root">
+      <element id="archive" name="WINF_SPMS.jar">
+        <element id="module-output" name="WINF-SPMS" />
+      </element>
+    </root>
+  </artifact>
+</component>

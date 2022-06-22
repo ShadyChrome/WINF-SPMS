@@ -19,6 +19,7 @@ import java.util.Arrays;
 
 import static com.java.page.TabPages.AS_IS_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
+import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_PAGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_MITGLIED_PAGE_PROPERTY;
@@ -58,7 +59,8 @@ public class ApplicationBarPage {
     firstToggleButton = createToggleButton(toggleGroup, "1. INNOVATION", INNOVATION_PAGE_PROPERTY);
     content.getChildren().addAll(logo, createMenuButton("PROJECT", Arrays.asList(
         new ActionItem("Team", () -> PropertyFactory.firePropertyChange(TEAM_PAGE_PROPERTY, null, null)),
-        new ActionItem("SWOT", () -> PropertyFactory.firePropertyChange(SWOT_PAGE_PROPERTY, null, null))
+        new ActionItem("SWOT", () -> PropertyFactory.firePropertyChange(SWOT_PAGE_PROPERTY, null, null)),
+        new ActionItem("Risikoanalyse", () -> PropertyFactory.firePropertyChange(RISOKO_ANALYSE_PAGE_PROPERTY, null, null))
         )), titleSpacer, firstToggleButton,
         createToggleButton(toggleGroup, "2. AS-IS", AS_IS_PAGE_PROPERTY),
         createToggleButton(toggleGroup, "3. TO-BE", TO_BE_PAGE_PROPERTY),

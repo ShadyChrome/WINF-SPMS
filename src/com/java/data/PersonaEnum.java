@@ -10,7 +10,6 @@ public enum PersonaEnum {
     this.text = text;
   }
 
-
   @Override
   public String toString() {
     return text;
