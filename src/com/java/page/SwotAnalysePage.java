@@ -2,6 +2,7 @@ package com.java.page;
 
 import com.java.data.DataController;
 import com.java.data.TeamMitgliedDTO;
+import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
@@ -12,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.java.utility.UIFactory.createFormularLabel;
 import static com.java.utility.UIFactory.createFormularSubtitle;
@@ -35,10 +39,6 @@ public class SwotAnalysePage implements TabPages {
     Label titleDesc = new Label("Mithilfe der SWOT Analyse könnt ihr eure Stärken und Schwächen, Chancen und Risiken herausarbeiten und daraus Strategien entwickeln. Diese helfen euch im Verlaufe des Projekts Fehler zu vermeiden und euer Potential vollständig ausschöpfen zu können (notiert jeweils Stichpunkte).");
     titleDesc.getStyleClass().add("titledesc");
 
-    JFXButton button = new JFXButton("Absenden");
-    HBox absendenContainer = createHBoxContainer(12, 0, button);
-    absendenContainer.setAlignment(Pos.CENTER);
-
     JFXTextArea stärkeTa = createFormularTextArea("Hier ausfüllen...");
     JFXTextArea schwächeTa = createFormularTextArea("Hier ausfüllen...");
     JFXTextArea risikoTa = createFormularTextArea("Hier ausfüllen...");
@@ -52,6 +52,26 @@ public class SwotAnalysePage implements TabPages {
         schwächeTa.appendText(schwäche + "\n");
       }
     }
+
+    JFXButton button = new JFXButton("Absenden");
+    button.getStyleClass().add("form-button");
+    button.setOnAction(event -> {
+      List<String> risikoList = new ArrayList<>();
+      for (String line : risikoTa.getText().split("\\n")) {
+        risikoList.add(line);
+      }
+      DataController.getINSTANCE().addAllRisiken(risikoList);
+
+      List<String> chanceList = new ArrayList<>();
+      for (String line : chanceTa.getText().split("\\n")) {
+        chanceList.add(line);
+      }
+      DataController.getINSTANCE().addAllChancen(chanceList);
+
+      PropertyFactory.firePropertyChange(SWOT_PAGE_PROPERTY, null, null);
+    });
+    HBox absendenContainer = createHBoxContainer(12, 0, button);
+    absendenContainer.setAlignment(Pos.CENTER);
 
     container.getChildren().addAll(title, titleDesc, new Separator(),
         new Label("Ein Blick in eurer Projektteam..."),

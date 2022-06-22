@@ -48,6 +48,7 @@ public class WorkSpacePage {
         currentActivePage = workSpacePage;
         root.setLeft(workSpacePage.getLeftNode());
         Node centerNode = workSpacePage.getCenterNode();
+        workSpacePage.update();
         root.setCenter(centerNode);
         centerNode.impl_reapplyCSS();
         centerNode.applyCss();

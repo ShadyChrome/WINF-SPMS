@@ -59,6 +59,7 @@ public class TeamMitgliedPage implements TabPages {
     titleDesc.getStyleClass().add("titledesc");
 
     JFXButton button = new JFXButton("Absenden");
+    button.getStyleClass().add("form-button");
     HBox absendenContainer = createHBoxContainer(12, 0, button);
     absendenContainer.setAlignment(Pos.CENTER);
 

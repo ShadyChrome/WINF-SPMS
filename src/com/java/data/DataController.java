@@ -2,6 +2,7 @@ package com.java.data;
 
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +31,9 @@ public class DataController {
       new NachrichtDTO("Mimosa Luong", "Thuy Linh Phung", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null)
   );
 
+  private ObservableList<RisikoDTO> risikoList = FXCollections.observableArrayList();
+  private ObservableList<ChanceDTO> chanceList = FXCollections.observableArrayList();
+
   public List<TeamMitgliedDTO> getTeamMitglieder() {
     return teamMitgliederList;
   }
@@ -38,4 +42,28 @@ public class DataController {
     return nachrichtenList;
   }
 
+
+  public ObservableList<RisikoDTO> getRisikoList() {
+    return risikoList;
+  }
+
+  public ObservableList<ChanceDTO> getChanceList() {
+    return chanceList;
+  }
+
+  public void addAllChancen(List<String> dtos) {
+    for (String dto : dtos) {
+      chanceList.add(new ChanceDTO(dto));
+    }
+  }
+
+  public void addAllRisiken(List<String> dtos) {
+    for (String dto : dtos) {
+      risikoList.add(new RisikoDTO(dto, "Mittel", "", "", ""));
+    }
+  }
+
+  public void addRisiko(String beschreibung) {
+    risikoList.add(new RisikoDTO(beschreibung, "Mittel", "", "", ""));
+  }
 }

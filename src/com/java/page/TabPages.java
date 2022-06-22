@@ -20,4 +20,6 @@ public interface TabPages {
   Node getLeftNode();
 
   Node getCenterNode();
+
+  default void update() {};
 }

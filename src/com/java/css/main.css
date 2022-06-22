@@ -351,3 +351,57 @@
     -fx-background-radius: 0;
     -fx-padding: 0;
 }
+
+.table-combo-box {
+    -jfx-unfocus-color: transparent;
+}
+
+.table-combo-box .arrow-button .arrow {
+    -fx-background-color: -text-color;
+}
+
+.table-view:focused .table-row-cell:focused:selected .table-combo-box .list-cell:hover {
+    -fx-text-fill: -text-color-inv;
+}
+
+.table-view .table-row-cell .table-combo-box .list-cell {
+    -fx-text-fill: -text-color;
+}
+
+.table-view {
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view:focused {
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.table-view .filler,
+.table-view .column-header {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-border-color: -fx-light-gray-color;
+    -fx-border-width: 0 0 2 0;
+    -fx-font-size: 12px;
+}
+
+.form-button {
+    -fx-background-color: -color-bar;
+    -fx-text-fill: -text-color-inv;
+    -fx-border-color: transparent;
+    -fx-border-insets: 1;
+}
+
+.form-button:focused {
+    -fx-background-color: -color-bar;
+    -fx-text-fill: -text-color-inv;
+    -fx-border-color: -text-color-inv;
+}

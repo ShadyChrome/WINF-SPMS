@@ -47,6 +47,7 @@ public class FragenPage implements TabPages {
     jfxChipView.setVisible(false);
 
     JFXButton button = new JFXButton("Absenden");
+    button.getStyleClass().add("form-button");
     HBox absendenContainer = createHBoxContainer(12, 0, button);
     absendenContainer.setAlignment(Pos.CENTER);
 
