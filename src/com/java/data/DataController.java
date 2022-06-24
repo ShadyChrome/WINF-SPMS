@@ -38,6 +38,10 @@ public class DataController {
     return teamMitgliederList;
   }
 
+  public void addNewTeamMitglied(TeamMitgliedDTO dto) {
+    teamMitgliederList.add(dto);
+  }
+
   public List<NachrichtDTO> getNachrichten() {
     return nachrichtenList;
   }

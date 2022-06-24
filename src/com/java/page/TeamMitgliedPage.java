@@ -2,6 +2,7 @@ package com.java.page;
 
 import com.java.components.IntegerTextField;
 import com.java.data.BelbinRollenEnum;
+import com.java.data.DataController;
 import com.java.data.ImagesEnum;
 import com.java.data.TeamMitgliedDTO;
 import com.java.utility.IconFactory;
@@ -137,11 +138,13 @@ public class TeamMitgliedPage implements TabPages {
       for (String line : schwächeTa.getText().split("\\n")) {
         schwächeList.add(line);
       }
+      TeamMitgliedDTO teamMitgliedDTO = new TeamMitgliedDTO(imageView.getImage() != null ? imageView.getImage() : IconFactory.getImage(ImagesEnum.DEFAULT), nameTf.getText(), alterTf.getNumberInt(), semesterTf.getNumberInt(),
+          berufTf.getText(), berufFirma.getText(), belbinCb.getSelectionModel().getSelectedItem().toString(),
+          projectTa.getText(), stärkeList, schwächeList,
+          new ArrayList<>(Arrays.asList(eisbrecherTierTf.getText(), eisbrecherFilmTf.getText(), eisbrecherSuperkraftTf.getText())));
+      DataController.getINSTANCE().addNewTeamMitglied(teamMitgliedDTO);
       PropertyFactory.firePropertyChange(NEW_TEAM_MEMBER_PROPERTY, null,
-          new TeamMitgliedDTO(imageView.getImage() != null ? imageView.getImage() : IconFactory.getImage(ImagesEnum.DEFAULT), nameTf.getText(), alterTf.getNumberInt(), semesterTf.getNumberInt(),
-              berufTf.getText(), berufFirma.getText(), belbinCb.getSelectionModel().getSelectedItem().toString(),
-              projectTa.getText(), stärkeList, schwächeList,
-              new ArrayList<>(Arrays.asList(eisbrecherTierTf.getText(), eisbrecherFilmTf.getText(), eisbrecherSuperkraftTf.getText()))));
+          teamMitgliedDTO);
     });
     return UIFactory.createScrollPane(container);
   }
