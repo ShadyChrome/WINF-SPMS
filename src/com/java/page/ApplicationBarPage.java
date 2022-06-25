@@ -18,6 +18,7 @@ import javafx.scene.layout.Priority;
 import java.util.Arrays;
 
 import static com.java.page.TabPages.AS_IS_PAGE_PROPERTY;
+import static com.java.page.TabPages.DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
 import static com.java.page.TabPages.NEUES_DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
@@ -61,7 +62,8 @@ public class ApplicationBarPage {
     content.getChildren().addAll(logo, createMenuButton("PROJECT", Arrays.asList(
         new ActionItem("Team", () -> PropertyFactory.firePropertyChange(TEAM_PAGE_PROPERTY, null, null)),
         new ActionItem("SWOT", () -> PropertyFactory.firePropertyChange(SWOT_PAGE_PROPERTY, null, null)),
-        new ActionItem("Risikoanalyse", () -> PropertyFactory.firePropertyChange(RISOKO_ANALYSE_PAGE_PROPERTY, null, null))
+        new ActionItem("Risikoanalyse", () -> PropertyFactory.firePropertyChange(RISOKO_ANALYSE_PAGE_PROPERTY, null, null)),
+        new ActionItem("Dashboard", () -> PropertyFactory.firePropertyChange(DASHBOARD_PAGE_PROPERTY, null, null))
         )), titleSpacer, firstToggleButton,
         createToggleButton(toggleGroup, "2. AS-IS", AS_IS_PAGE_PROPERTY),
         createToggleButton(toggleGroup, "3. TO-BE", TO_BE_PAGE_PROPERTY),

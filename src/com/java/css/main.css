@@ -405,3 +405,40 @@
     -fx-text-fill: -text-color-inv;
     -fx-border-color: -text-color-inv;
 }
+
+.overlay-bar-chart .chart-legend {
+    -fx-translate-x: 75px;
+    -fx-background-color: transparent;
+}
+
+.overlay-bar-chart .chart-bar {
+    -fx-bar-fill: rgb(227, 227, 227);
+}
+
+.underlay-bar-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.underlay-bar-chart .chart-bar {
+    -fx-bar-fill: rgb(46, 117, 182);
+}
+
+.underlay-bar-chart .chart-legend {
+    -fx-translate-x: -25px;
+    -fx-background-color: transparent;
+}
+
+.bar-chart-inside-label {
+    -fx-text-fill: -text-color-inv;
+    -fx-font-weight: bold;
+    -fx-padding: 0 12 0 0;
+}
+
+.dashboard-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-background-color: rgb(46, 117, 182);
+    -fx-text-fill: -text-color-inv;
+    -fx-alignment: center;
+    -fx-background-radius: 5;
+}

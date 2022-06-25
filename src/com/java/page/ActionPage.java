@@ -1,6 +1,7 @@
 package com.java.page;
 
 import com.java.actions.ActionItem;
+import com.java.data.DataController;
 import com.java.data.ImagesEnum;
 import com.java.data.PersonaEnum;
 import com.java.utility.IconFactory;
@@ -34,7 +35,7 @@ public class ActionPage {
   private void init() {
     Pane spacer = new Pane();
     VBox.setVgrow(spacer, Priority.ALWAYS);
-    this.content.getChildren().addAll(createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(FXCollections.observableArrayList("Demo Team 1", "Demo Team 2", "Demo Team 3"))),
+    this.content.getChildren().addAll(createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.TEAM)), createComboBox(DataController.getINSTANCE().getTeamList())),
         new Separator(),
         createHBoxContainer(0, 12, new ImageView(IconFactory.getImage(ImagesEnum.FILTER)), createComboBox(FXCollections.observableArrayList("Alle"))),
         new Separator(),

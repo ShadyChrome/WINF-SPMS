@@ -11,11 +11,13 @@ import java.util.List;
 
 public class MeilensteinDTO {
   private SimpleStringProperty name;
+  private String shortName = "";
   private SimpleStringProperty beschreibung;
   private ObjectProperty<LocalDate> deadline;
   private ObjectProperty<AbgabeArtEnum> abgabe;
   private ObjectProperty<BewertungsArtEnum> bewertung;
   private List<TeamDTO> assignedTeams = new ArrayList<>();
+  private String projekt = "";
 
   public MeilensteinDTO(String name, String beschreibung, LocalDate deadline, AbgabeArtEnum abgabe, BewertungsArtEnum bewertung) {
     this.name = new SimpleStringProperty(name);
@@ -87,5 +89,21 @@ public class MeilensteinDTO {
 
   public void assignTeam(TeamDTO... dtos) {
     assignedTeams.addAll(Arrays.asList(dtos));
+  }
+
+  public String getProjekt() {
+    return projekt;
+  }
+
+  public void setProjekt(String projekt) {
+    this.projekt = projekt;
+  }
+
+  public String getShortName() {
+    return shortName;
+  }
+
+  public void setShortName(String shortName) {
+    this.shortName = shortName;
   }
 }

@@ -42,6 +42,12 @@ public class DataController {
       new MeilensteinDTO("ESA 2", "", LocalDate.of(2022, 5, 10), AbgabeArtEnum.CHECKBOX, BewertungsArtEnum.EINZELLEISTUNG)
   );
 
+  private ObservableList<TeamDTO> teamList = FXCollections.observableArrayList(
+      new TeamDTO("WINF1", Arrays.asList("Mimosa Luong", "Linh Phung", "Lisa Spendel", "Marcel Koschau", "Jörg Seelenbinder")),
+      new TeamDTO("WINF2", Arrays.asList()),
+      new TeamDTO("MINF1", Arrays.asList())
+  );
+
   public List<TeamMitgliedDTO> getTeamMitglieder() {
     return teamMitgliederList;
   }
@@ -81,5 +87,13 @@ public class DataController {
 
   public ObservableList<MeilensteinDTO> getMeilensteinList() {
     return meilensteinList;
+  }
+
+  public void addMeilenstein(String name) {
+    meilensteinList.add(new MeilensteinDTO(name, "", LocalDate.now(), AbgabeArtEnum.FREITEXT, BewertungsArtEnum.OHNE_BEWERTUNG));
+  }
+
+  public ObservableList<TeamDTO> getTeamList() {
+    return teamList;
   }
 }

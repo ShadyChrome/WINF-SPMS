@@ -11,4 +11,13 @@ public class TeamDTO {
     this.teamName = teamName;
     this.mitglieder = mitglieder;
   }
+
+  @Override
+  public String toString() {
+    return teamName;
+  }
+
+  public List<String> getMitglieder() {
+    return mitglieder;
+  }
 }

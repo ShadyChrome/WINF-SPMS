@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static com.java.page.TabPages.AS_IS_PAGE_PROPERTY;
+import static com.java.page.TabPages.DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.FAQ_PAGE_PROPERTY;
 import static com.java.page.TabPages.FRAGEN_PAGE_PROPERTY;
 import static com.java.page.TabPages.INBOX_PAGE_PROPERTY;
@@ -41,6 +42,7 @@ public class WorkSpacePage {
     pageMap.put(SWOT_ANALYSE_PAGE_PROPERTY, new SwotAnalysePage());
     pageMap.put(RISOKO_ANALYSE_PAGE_PROPERTY, new RisikoAnalysePage());
     pageMap.put(NEUES_DASHBOARD_PAGE_PROPERTY, new NeuesDashboardPage());
+    pageMap.put(DASHBOARD_PAGE_PROPERTY, new DashboardPage());
 
     this.root = new BorderPane();
 
