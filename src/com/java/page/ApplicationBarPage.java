@@ -19,6 +19,7 @@ import java.util.Arrays;
 
 import static com.java.page.TabPages.AS_IS_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
+import static com.java.page.TabPages.NEUES_DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_PAGE_PROPERTY;
@@ -67,7 +68,8 @@ public class ApplicationBarPage {
         createToggleButton(toggleGroup, "4. TRENDS", TRENDS_PAGE_PROPERTY),
         titleSpacer2, createMenuButton("INPUT PM", Arrays.asList(
             new ActionItem("Neues Teammitglied", () -> PropertyFactory.firePropertyChange(TEAM_MITGLIED_PAGE_PROPERTY, null, null)),
-            new ActionItem("Neue SWOT Analyse", () -> PropertyFactory.firePropertyChange(SWOT_ANALYSE_PAGE_PROPERTY, null, null))
+            new ActionItem("Neue SWOT Analyse", () -> PropertyFactory.firePropertyChange(SWOT_ANALYSE_PAGE_PROPERTY, null, null)),
+            new ActionItem("Neues Dashboard", () -> PropertyFactory.firePropertyChange(NEUES_DASHBOARD_PAGE_PROPERTY, null, null))
         )));
 
     content.setAlignment(Pos.CENTER_LEFT);

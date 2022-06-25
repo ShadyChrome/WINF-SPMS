@@ -29,7 +29,6 @@ public class TableViewRisiko extends TableView<RisikoDTO> {
     setPlaceholder(new Label());
 
     setEditable(true);
-    setItems(items);
     getColumns().addAll(createTableColumns());
 
     setFixedCellSize(36);
@@ -76,6 +75,7 @@ public class TableViewRisiko extends TableView<RisikoDTO> {
 
     eintrittsWahrscheinlichkeit = new TableColumn("Eintrittswahrscheinlichkeit");
     eintrittsWahrscheinlichkeit.setMinWidth(200);
+    eintrittsWahrscheinlichkeit.setSortable(false);
     eintrittsWahrscheinlichkeit.setCellValueFactory(i -> {
       final SimpleStringProperty value = i.getValue().eintrittsWahrscheinlichkeitProperty();
       // binding to constant value

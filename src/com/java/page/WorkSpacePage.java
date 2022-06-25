@@ -12,6 +12,7 @@ import static com.java.page.TabPages.FAQ_PAGE_PROPERTY;
 import static com.java.page.TabPages.FRAGEN_PAGE_PROPERTY;
 import static com.java.page.TabPages.INBOX_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
+import static com.java.page.TabPages.NEUES_DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_PAGE_PROPERTY;
@@ -39,6 +40,7 @@ public class WorkSpacePage {
     pageMap.put(SWOT_PAGE_PROPERTY, new SwotPage());
     pageMap.put(SWOT_ANALYSE_PAGE_PROPERTY, new SwotAnalysePage());
     pageMap.put(RISOKO_ANALYSE_PAGE_PROPERTY, new RisikoAnalysePage());
+    pageMap.put(NEUES_DASHBOARD_PAGE_PROPERTY, new NeuesDashboardPage());
 
     this.root = new BorderPane();
 

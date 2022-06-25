@@ -4,8 +4,10 @@ import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class DataController {
@@ -33,6 +35,12 @@ public class DataController {
 
   private ObservableList<RisikoDTO> risikoList = FXCollections.observableArrayList();
   private ObservableList<ChanceDTO> chanceList = FXCollections.observableArrayList();
+  private ObservableList<MeilensteinDTO> meilensteinList = FXCollections.observableArrayList(
+      new MeilensteinDTO("Schwerpunkt festlegen", "Entscheidung zwischen Marketing und Eingangslogistik", LocalDate.of(2022, 4, 20) , AbgabeArtEnum.FREITEXT, BewertungsArtEnum.OHNE_BEWERTUNG),
+      new MeilensteinDTO("User Stories", "25 User Stories definieren", LocalDate.of(2022, 4, 28), AbgabeArtEnum.UPLOAD, BewertungsArtEnum.GRUPPENLEISTUNG),
+      new MeilensteinDTO("ESA 1", "", LocalDate.of(2022, 5, 1), AbgabeArtEnum.LINK, BewertungsArtEnum.EINZELLEISTUNG),
+      new MeilensteinDTO("ESA 2", "", LocalDate.of(2022, 5, 10), AbgabeArtEnum.CHECKBOX, BewertungsArtEnum.EINZELLEISTUNG)
+  );
 
   public List<TeamMitgliedDTO> getTeamMitglieder() {
     return teamMitgliederList;
@@ -69,5 +77,9 @@ public class DataController {
 
   public void addRisiko(String beschreibung) {
     risikoList.add(new RisikoDTO(beschreibung, "Mittel", "", "", ""));
+  }
+
+  public ObservableList<MeilensteinDTO> getMeilensteinList() {
+    return meilensteinList;
   }
 }
