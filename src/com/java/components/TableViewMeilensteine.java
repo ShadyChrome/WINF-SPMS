@@ -63,7 +63,7 @@ public class TableViewMeilensteine extends TableView<MeilensteinDTO> {
             super.updateItem(item, empty);
 
             if (this.getTableRow() != null && item != null) {
-              setText("M" + this.getTableRow().getIndex());
+              setText("M" + (this.getTableRow().getIndex() + 1));
               ((MeilensteinDTO) getTableView().getItems().get(getTableRow().getIndex())).setShortName("M" + this.getTableRow().getIndex());
             } else {
               setText("");

@@ -84,7 +84,7 @@ public class NeuesDashboardPage implements TabPages {
     button.setOnAction(event -> {
       for (MeilensteinDTO meilensteinDTO : DataController.getINSTANCE().getMeilensteinList()) {
         meilensteinDTO.setProjekt(projektZielTf.getText());
-        meilensteinDTO.assignTeam(teamCb.getSelectionModel().getSelectedItem());
+        teamCb.getSelectionModel().getSelectedItem().addMeilenstein(meilensteinDTO);
       }
     });
 

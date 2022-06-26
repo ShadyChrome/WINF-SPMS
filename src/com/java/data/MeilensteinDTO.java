@@ -5,9 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class MeilensteinDTO {
   private SimpleStringProperty name;
@@ -16,7 +13,6 @@ public class MeilensteinDTO {
   private ObjectProperty<LocalDate> deadline;
   private ObjectProperty<AbgabeArtEnum> abgabe;
   private ObjectProperty<BewertungsArtEnum> bewertung;
-  private List<TeamDTO> assignedTeams = new ArrayList<>();
   private String projekt = "";
 
   public MeilensteinDTO(String name, String beschreibung, LocalDate deadline, AbgabeArtEnum abgabe, BewertungsArtEnum bewertung) {
@@ -87,10 +83,6 @@ public class MeilensteinDTO {
     this.bewertung.set(bewertung);
   }
 
-  public void assignTeam(TeamDTO... dtos) {
-    assignedTeams.addAll(Arrays.asList(dtos));
-  }
-
   public String getProjekt() {
     return projekt;
   }
@@ -105,5 +97,10 @@ public class MeilensteinDTO {
 
   public void setShortName(String shortName) {
     this.shortName = shortName;
+  }
+
+  @Override
+  public String toString() {
+    return shortName + " - " + getName();
   }
 }

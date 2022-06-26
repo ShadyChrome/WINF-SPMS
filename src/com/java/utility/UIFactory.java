@@ -91,8 +91,8 @@ public class UIFactory {
     return hBox;
   }
 
-  public static HBox createCenteredHBoxContainer(Node node) {
-    HBox hBox = new HBox(node);
+  public static HBox createCenteredHBoxContainer(Node... nodes) {
+    HBox hBox = new HBox(12, nodes);
     hBox.setAlignment(Pos.CENTER);
     return hBox;
   }

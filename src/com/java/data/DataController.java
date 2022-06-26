@@ -3,11 +3,11 @@ package com.java.data;
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class DataController {
@@ -36,17 +36,71 @@ public class DataController {
   private ObservableList<RisikoDTO> risikoList = FXCollections.observableArrayList();
   private ObservableList<ChanceDTO> chanceList = FXCollections.observableArrayList();
   private ObservableList<MeilensteinDTO> meilensteinList = FXCollections.observableArrayList(
-      new MeilensteinDTO("Schwerpunkt festlegen", "Entscheidung zwischen Marketing und Eingangslogistik", LocalDate.of(2022, 4, 20) , AbgabeArtEnum.FREITEXT, BewertungsArtEnum.OHNE_BEWERTUNG),
+      new MeilensteinDTO("Schwerpunkt festlegen", "Entscheidung zwischen Marketing und Eingangslogistik", LocalDate.of(2022, 4, 20), AbgabeArtEnum.FREITEXT, BewertungsArtEnum.OHNE_BEWERTUNG),
       new MeilensteinDTO("User Stories", "25 User Stories definieren", LocalDate.of(2022, 4, 28), AbgabeArtEnum.UPLOAD, BewertungsArtEnum.GRUPPENLEISTUNG),
       new MeilensteinDTO("ESA 1", "", LocalDate.of(2022, 5, 1), AbgabeArtEnum.LINK, BewertungsArtEnum.EINZELLEISTUNG),
       new MeilensteinDTO("ESA 2", "", LocalDate.of(2022, 5, 10), AbgabeArtEnum.CHECKBOX, BewertungsArtEnum.EINZELLEISTUNG)
   );
 
   private ObservableList<TeamDTO> teamList = FXCollections.observableArrayList(
-      new TeamDTO("WINF1", Arrays.asList("Mimosa Luong", "Linh Phung", "Lisa Spendel", "Marcel Koschau", "Jörg Seelenbinder")),
-      new TeamDTO("WINF2", Arrays.asList()),
-      new TeamDTO("MINF1", Arrays.asList())
+      new TeamDTO("WINF1", Arrays.asList("Birgitta Hertrampf", "Danny Fechner", "Gunda Siering", "Hans-Gerhard Matthäi", "Liliane Stolze")),
+      new TeamDTO("WINF2", Arrays.asList("Mimosa Luong", "Linh Phung", "Lisa Spendel", "Marcel Koschau", "Jörg Seelenbinder")),
+      new TeamDTO("MINF1", Arrays.asList("Filiz Eberth", "Kamil Misicher", "Veronique Kranz", "Peter Schwital", "Arne Gorlitz"))
   );
+
+  private ObservableList<List<String>> exampleFortschrittWINF1 = FXCollections.observableArrayList(
+      Arrays.asList("15. Apr", "24. Apr", "", "", "50%"),
+      Arrays.asList("12. Apr", "21. Apr", "26. Apr", "", "75%"),
+      Arrays.asList("14. Apr", "21. Apr", "", "", "50%"),
+      Arrays.asList("14. Apr", "18. Apr", "26. Apr", "", "75%"),
+      Arrays.asList("14. Apr", "19. Apr", "", "", "50%")
+  );
+
+  private ObservableList<List<Pair<String, String>>> exampleAbgabeWINF1 = FXCollections.observableArrayList(
+      Arrays.asList(new Pair("15.04.2022", "m1.pdf"), new Pair("24.04.2022", "m2.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("12.04.2022", "m1.docx"), new Pair("21.04.2022", "m2.docx"), new Pair("26.04.2022", "m3.docx"), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1_siering.pdf"), new Pair("21.04.2022", "m2_siering.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1.pdf"), new Pair("18.04.2022", "m2.pdf"), new Pair("26.04.2022", "m3.pdf"), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1_stolze.pdf"), new Pair("19.04.2022", "m2_stolze.pdf"), new Pair("", ""), new Pair("", ""))
+  );
+
+  private String exampleGesamtFortschrittWINF1 = "60%";
+
+  private ObservableList<List<String>> exampleFortschrittWINF2 = FXCollections.observableArrayList(
+      Arrays.asList("19. Apr", "22. Apr", "23. Apr", "", "75%"),
+      Arrays.asList("19. Apr", "22. Apr", "", "", "50%"),
+      Arrays.asList("19. Apr", "22. Apr", "25. Apr", "", "75%"),
+      Arrays.asList("19. Apr", "22. Apr", "27. Apr", "", "75%"),
+      Arrays.asList("19. Apr", "22. Apr", "29. Apr", "", "75%")
+  );
+
+  private ObservableList<List<Pair<String, String>>> exampleAbgabeWINF2 = FXCollections.observableArrayList(
+      Arrays.asList(new Pair("19.04.2022", "m1_luong.pdf"), new Pair("22.04.2022", "m2_luong.pdf"), new Pair("23.04.2022", "m3_luong.pdf"), new Pair("", "")),
+      Arrays.asList(new Pair("19.04.2022", "m1_phung.pdf"), new Pair("22.04.2022", "m2_phung.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("19.04.2022", "m1_spendel.pdf"), new Pair("22.04.2022", "m2_spendel.pdf"), new Pair("25.04.2022", "m3_spendel.pdf"), new Pair("", "")),
+      Arrays.asList(new Pair("19.04.2022", "m1_koschau.pdf"), new Pair("22.04.2022", "m2_koschau.pdf"), new Pair("27.04.2022", "m3_koschau.pdf"), new Pair("", "")),
+      Arrays.asList(new Pair("19.04.2022", "m1_seelenbinder.pdf"), new Pair("22.04.2022", "m2_seelenbinder.pdf"), new Pair("29.04.2022", "m3_seelenbinder.pdf"), new Pair("", ""))
+  );
+
+  private String exampleGesamtFortschrittWINF2 = "70%";
+
+  private ObservableList<List<String>> exampleFortschrittMINF1 = FXCollections.observableArrayList(
+      Arrays.asList("19. Apr", "24. Apr", "", "", "50%"),
+      Arrays.asList("17. Apr", "21. Apr", "", "", "50%"),
+      Arrays.asList("16. Apr", "21. Apr", "", "", "50%"),
+      Arrays.asList("14. Apr", "18. Apr", "", "", "50%"),
+      Arrays.asList("14. Apr", "18. Apr", "", "", "50%")
+  );
+
+  private ObservableList<List<Pair<String, String>>> exampleAbgabeMINF1 = FXCollections.observableArrayList(
+      Arrays.asList(new Pair("19.04.2022", "m1_eberth.pdf"), new Pair("24.04.2022", "m2_eberth.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("17.04.2022", "m1_misicher.pdf"), new Pair("21.04.2022", "m2_misicher.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("16.04.2022", "m1_kranz.pdf"), new Pair("21.04.2022", "m2_kranz.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1_schwital.pdf"), new Pair("18.04.2022", "m2_schwital.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1_gorlitz.pdf"), new Pair("18.04.2022", "m2_gorlitz.pdf"), new Pair("", ""), new Pair("", ""))
+  );
+
+  private String exampleGesamtFortschrittMINF1 = "50%";
 
   public List<TeamMitgliedDTO> getTeamMitglieder() {
     return teamMitgliederList;
@@ -95,5 +149,41 @@ public class DataController {
 
   public ObservableList<TeamDTO> getTeamList() {
     return teamList;
+  }
+
+  public ObservableList<List<String>> getExampleFortschrittWINF1() {
+    return exampleFortschrittWINF1;
+  }
+
+  public String getExampleGesamtFortschrittWINF1() {
+    return exampleGesamtFortschrittWINF1;
+  }
+
+  public ObservableList<List<String>> getExampleFortschrittWINF2() {
+    return exampleFortschrittWINF2;
+  }
+
+  public String getExampleGesamtFortschrittWINF2() {
+    return exampleGesamtFortschrittWINF2;
+  }
+
+  public ObservableList<List<String>> getExampleFortschrittMINF1() {
+    return exampleFortschrittMINF1;
+  }
+
+  public String getExampleGesamtFortschrittMINF1() {
+    return exampleGesamtFortschrittMINF1;
+  }
+
+  public ObservableList<List<Pair<String, String>>> getExampleAbgabeWINF1() {
+    return exampleAbgabeWINF1;
+  }
+
+  public ObservableList<List<Pair<String, String>>> getExampleAbgabeWINF2() {
+    return exampleAbgabeWINF2;
+  }
+
+  public ObservableList<List<Pair<String, String>>> getExampleAbgabeMINF1() {
+    return exampleAbgabeMINF1;
   }
 }
