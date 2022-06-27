@@ -3,6 +3,7 @@ package com.java.data;
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.time.LocalDate;
@@ -13,6 +14,8 @@ import java.util.List;
 public class DataController {
 
   private static final DataController INSTANCE = new DataController();
+  private String activeUser;
+  private Stage primaryStage;
 
   public static DataController getINSTANCE() {
     return INSTANCE;
@@ -38,8 +41,8 @@ public class DataController {
   private ObservableList<MeilensteinDTO> meilensteinList = FXCollections.observableArrayList(
       new MeilensteinDTO("Schwerpunkt festlegen", "Entscheidung zwischen Marketing und Eingangslogistik", LocalDate.of(2022, 4, 20), AbgabeArtEnum.FREITEXT, BewertungsArtEnum.OHNE_BEWERTUNG),
       new MeilensteinDTO("User Stories", "25 User Stories definieren", LocalDate.of(2022, 4, 28), AbgabeArtEnum.UPLOAD, BewertungsArtEnum.GRUPPENLEISTUNG),
-      new MeilensteinDTO("ESA 1", "", LocalDate.of(2022, 5, 1), AbgabeArtEnum.LINK, BewertungsArtEnum.EINZELLEISTUNG),
-      new MeilensteinDTO("ESA 2", "", LocalDate.of(2022, 5, 10), AbgabeArtEnum.CHECKBOX, BewertungsArtEnum.EINZELLEISTUNG)
+      new MeilensteinDTO("ESA 1", "", LocalDate.of(2022, 5, 1), AbgabeArtEnum.UPLOAD, BewertungsArtEnum.EINZELLEISTUNG),
+      new MeilensteinDTO("ESA 2", "", LocalDate.of(2022, 5, 10), AbgabeArtEnum.LINK, BewertungsArtEnum.EINZELLEISTUNG)
   );
 
   private ObservableList<TeamDTO> teamList = FXCollections.observableArrayList(
@@ -102,6 +105,9 @@ public class DataController {
 
   private String exampleGesamtFortschrittMINF1 = "50%";
 
+  private PersonaEnum activePersona = PersonaEnum.DOZENT;
+  private TeamDTO activeTeam;
+
   public List<TeamMitgliedDTO> getTeamMitglieder() {
     return teamMitgliederList;
   }
@@ -113,7 +119,6 @@ public class DataController {
   public List<NachrichtDTO> getNachrichten() {
     return nachrichtenList;
   }
-
 
   public ObservableList<RisikoDTO> getRisikoList() {
     return risikoList;
@@ -185,5 +190,37 @@ public class DataController {
 
   public ObservableList<List<Pair<String, String>>> getExampleAbgabeMINF1() {
     return exampleAbgabeMINF1;
+  }
+
+  public void setActivePersona(PersonaEnum newValue) {
+    this.activePersona = newValue;
+  }
+
+  public boolean isDozent() {
+    return activePersona == PersonaEnum.DOZENT;
+  }
+
+  public TeamDTO getActiveTeam() {
+    return activeTeam;
+  }
+
+  public void setActiveTeam(TeamDTO activeTeam) {
+    this.activeTeam = activeTeam;
+  }
+
+  public void setActiveUser(String newUserName) {
+    this.activeUser = newUserName;
+  }
+
+  public String getActiveUser() {
+    return activeUser;
+  }
+
+  public void setPrimaryStage(Stage primaryStage) {
+    this.primaryStage = primaryStage;
+  }
+
+  public Stage getPrimaryStage() {
+    return primaryStage;
   }
 }

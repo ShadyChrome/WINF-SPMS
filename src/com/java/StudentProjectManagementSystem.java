@@ -1,5 +1,6 @@
 package com.java;
 
+import com.java.data.DataController;
 import com.java.page.MainPage;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ public class StudentProjectManagementSystem extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+    DataController.getINSTANCE().setPrimaryStage(primaryStage);
 
     Scene scene = new Scene(new MainPage().getContent());
     scene.getStylesheets().add(this.getClass().getResource("css/colors.css").toExternalForm());

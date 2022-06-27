@@ -3,6 +3,9 @@ package com.java.page;
 import javafx.scene.Node;
 
 public interface TabPages {
+  String PERSONA_CHANGE_PROPERTY = "persona_change_property";
+  String TEAM_CHANGE_PROPERTY = "team_change_property";
+
   String INNOVATION_PAGE_PROPERTY = "innovation_page_property";
   String AS_IS_PAGE_PROPERTY = "as_is__page_property";
   String TO_BE_PAGE_PROPERTY = "to_be_page_property";

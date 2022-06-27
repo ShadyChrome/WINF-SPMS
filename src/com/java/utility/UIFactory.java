@@ -5,23 +5,30 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleNode;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 
 import java.awt.image.BufferedImage;
 import java.util.List;
+import java.util.Optional;
 
 public class UIFactory {
 
@@ -146,5 +153,27 @@ public class UIFactory {
     }
 
     return new ImageView(SwingFXUtils.toFXImage(img, null));
+  }
+
+  public static String showInputDialog(String title, String nameText1, String initial) {
+    TextInputDialog textInputDialog = new TextInputDialog();
+    textInputDialog.setTitle(title);
+    textInputDialog.setHeaderText(null);
+    textInputDialog.setContentText(nameText1);
+    textInputDialog.getEditor().setText(initial);
+
+    textInputDialog.initModality(Modality.WINDOW_MODAL);
+
+    Button yesButton = (Button) textInputDialog.getDialogPane().lookupButton(ButtonType.OK);
+
+    BooleanBinding textFieldValid = Bindings.createBooleanBinding(() -> !textInputDialog.getEditor().getText().isEmpty(), textInputDialog.getEditor().textProperty());
+    yesButton.disableProperty().bind(textFieldValid.not());
+
+    Optional<String> result = textInputDialog.showAndWait();
+    if (result.isPresent()) {
+      return textInputDialog.getEditor().getText();
+    } else {
+      return null;
+    }
   }
 }

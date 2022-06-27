@@ -14,9 +14,11 @@ import static com.java.page.TabPages.FRAGEN_PAGE_PROPERTY;
 import static com.java.page.TabPages.INBOX_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
 import static com.java.page.TabPages.NEUES_DASHBOARD_PAGE_PROPERTY;
+import static com.java.page.TabPages.PERSONA_CHANGE_PROPERTY;
 import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_PAGE_PROPERTY;
+import static com.java.page.TabPages.TEAM_CHANGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_MITGLIED_PAGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_PAGE_PROPERTY;
 import static com.java.page.TabPages.TO_BE_PAGE_PROPERTY;
@@ -56,6 +58,15 @@ public class WorkSpacePage {
         root.setCenter(centerNode);
         centerNode.impl_reapplyCSS();
         centerNode.applyCss();
+      } else if (evt.getPropertyName().equals(PERSONA_CHANGE_PROPERTY) || evt.getPropertyName().equals(TEAM_CHANGE_PROPERTY)) {
+        if (currentActivePage != null) {
+          root.setLeft(currentActivePage.getLeftNode());
+          Node centerNode = currentActivePage.getCenterNode();
+          currentActivePage.update();
+          root.setCenter(centerNode);
+          centerNode.impl_reapplyCSS();
+          centerNode.applyCss();
+        }
       }
     });
   }
