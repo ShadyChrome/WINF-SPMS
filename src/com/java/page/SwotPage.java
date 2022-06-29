@@ -114,6 +114,9 @@ public class SwotPage implements TabPages {
   @Override
   public void update() {
     risiko.getChildren().clear();
+    chance.getChildren().clear();
+    stärke.getChildren().clear();
+    schwäche.getChildren().clear();
     Label risiken = new Label("Risiken");
     risiken.getStyleClass().add("titledesc");
     risiko.getChildren().add(risiken);
