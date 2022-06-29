@@ -7,6 +7,7 @@ import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
@@ -19,6 +20,14 @@ public class TeamPage implements TabPages {
   public TeamPage() {
     GridPane gridPane = new GridPane();
     gridPane.setVgap(12);
+
+    ColumnConstraints col1 = new ColumnConstraints();
+    col1.setPercentWidth(33.33);
+    ColumnConstraints col2 = new ColumnConstraints();
+    col2.setPercentWidth(33.33);
+    ColumnConstraints col3 = new ColumnConstraints();
+    col3.setPercentWidth(33.33);
+    gridPane.getColumnConstraints().addAll(col1, col2, col3);
 
     for (TeamMitgliedDTO teamMitgliedDTO : DataController.getINSTANCE().getTeamMitglieder()) {
       if (col > 2) {
