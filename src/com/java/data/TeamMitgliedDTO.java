@@ -8,7 +8,6 @@ public class TeamMitgliedDTO {
 
   private Image image;
   private String name;
-  private final int alter;
   private final int semester;
   private final String beruf;
   private final String firma;
@@ -18,10 +17,9 @@ public class TeamMitgliedDTO {
   private final List<String> schwäche;
   private final List<String> eisbrecher;
 
-  public TeamMitgliedDTO(Image image, String name, int alter, int semester, String beruf, String firma, String belbin, String projekt, List<String> stärke, List<String> schwäche, List<String> eisbrecher) {
+  public TeamMitgliedDTO(Image image, String name, int semester, String beruf, String firma, String belbin, String projekt, List<String> stärke, List<String> schwäche, List<String> eisbrecher) {
     this.image = image;
     this.name = name;
-    this.alter = alter;
     this.semester = semester;
     this.beruf = beruf;
     this.firma = firma;
@@ -38,10 +36,6 @@ public class TeamMitgliedDTO {
 
   public String getName() {
     return name;
-  }
-
-  public int getAlter() {
-    return alter;
   }
 
   public int getSemester() {

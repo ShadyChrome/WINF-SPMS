@@ -29,8 +29,6 @@ public class TeamMemberWidget {
     Label belbin = new Label(teamMitgliedDTO.getBelbin());
     belbin.getStyleClass().add("team-mitglied-belbin");
     Label spacer = new Label("");
-    Label alter = new Label(teamMitgliedDTO.getAlter() + " Jahre");
-    alter.getStyleClass().add("team-mitglied-allgemein");
     Label semester = new Label(teamMitgliedDTO.getSemester() + ". Semester");
     semester.getStyleClass().add("team-mitglied-allgemein");
     Label beruf = new Label(teamMitgliedDTO.getBeruf());
@@ -45,7 +43,7 @@ public class TeamMemberWidget {
 
     StackPane stackPane = new StackPane(imageView);
     stackPane.getStyleClass().add("stack-pane");
-    VBox allgemeinContainer = new VBox(stackPane, name, belbin, spacer, alter, semester, beruf, firma);
+    VBox allgemeinContainer = new VBox(stackPane, name, belbin, spacer, semester, beruf, firma);
     allgemeinContainer.getStyleClass().add("team-mitglied-container-allgemein");
     allgemeinContainer.setAlignment(Pos.CENTER);
 

@@ -65,7 +65,6 @@ public class TeamMitgliedPage implements TabPages {
     absendenContainer.setAlignment(Pos.CENTER);
 
     JFXTextField nameTf = new JFXTextField();
-    IntegerTextField alterTf = new IntegerTextField();
     IntegerTextField semesterTf = new IntegerTextField();
     JFXTextField berufTf = new JFXTextField();
     JFXTextField berufFirma = new JFXTextField();
@@ -106,9 +105,8 @@ public class TeamMitgliedPage implements TabPages {
     container.getChildren().addAll(title, titleDesc, new Separator(),
         createFormularSubtitle("Allgemein"), createFormularLabel("Ein paar allgemeine Infos zum Start:"),
         createFormularVBox(0, createHBoxContainer(12, 0, createFormularLabel("1) Mein Name ist "), nameTf, createFormularLabel(".")),
-            createHBoxContainer(12, 0, createFormularLabel("2) Ich bin "), alterTf, createFormularLabel(" Jahre alt.")),
-            createHBoxContainer(12, 0, createFormularLabel("3) Ich studiere im "), semesterTf, createFormularLabel(" Semester.")),
-            createHBoxContainer(12, 0, createFormularLabel("4) Neben dem Studium arbeite ich als "), berufTf, createFormularLabel(" bei "), berufFirma, createFormularLabel("."))),
+            createHBoxContainer(12, 0, createFormularLabel("2) Ich studiere im "), semesterTf, createFormularLabel(" Semester.")),
+            createHBoxContainer(12, 0, createFormularLabel("3) Neben dem Studium arbeite ich als "), berufTf, createFormularLabel(" bei "), berufFirma, createFormularLabel("."))),
         createFormularSubtitle("Foto"),
         createFormularLabel("Lade hier gern ein Foto von dir hoch. So wird die Kommunikation zwischen deinen Teammitgliedern noch persönlicher. Du hast gerade keins zur Hand? Dann erstelle dir doch ein individuelles Icon auf BitMoji.", true),
         imageBtn,
@@ -138,7 +136,7 @@ public class TeamMitgliedPage implements TabPages {
       for (String line : schwächeTa.getText().split("\\n")) {
         schwächeList.add(line);
       }
-      TeamMitgliedDTO teamMitgliedDTO = new TeamMitgliedDTO(imageView.getImage() != null ? imageView.getImage() : IconFactory.getImage(ImagesEnum.DEFAULT), nameTf.getText(), alterTf.getNumberInt(), semesterTf.getNumberInt(),
+      TeamMitgliedDTO teamMitgliedDTO = new TeamMitgliedDTO(imageView.getImage() != null ? imageView.getImage() : IconFactory.getImage(ImagesEnum.DEFAULT), nameTf.getText(), semesterTf.getNumberInt(),
           berufTf.getText(), berufFirma.getText(), belbinCb.getSelectionModel().getSelectedItem().toString(),
           projectTa.getText(), stärkeList, schwächeList,
           new ArrayList<>(Arrays.asList(eisbrecherTierTf.getText(), eisbrecherFilmTf.getText(), eisbrecherSuperkraftTf.getText())));
