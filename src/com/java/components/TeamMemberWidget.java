@@ -1,8 +1,11 @@
 package com.java.components;
 
+import com.java.data.DataController;
 import com.java.data.ImagesEnum;
 import com.java.data.TeamMitgliedDTO;
+import com.java.page.TabPages;
 import com.java.utility.IconFactory;
+import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,6 +17,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -86,6 +91,16 @@ public class TeamMemberWidget {
     HBox eisbrecherContainer = new HBox();
     eisbrecherContainer.setSpacing(24);
     eisbrecherContainer.setAlignment(Pos.CENTER);
+    eisbrecherContainer.managedProperty().bind(eisbrecherContainer.visibleProperty());
+    eisbrecherContainer.setVisible(!DataController.getINSTANCE().isDozent());
+    PropertyFactory.addPropertyChangeListener(new PropertyChangeListener() {
+      @Override
+      public void propertyChange(PropertyChangeEvent evt) {
+        if (evt.getPropertyName().equals(TabPages.PERSONA_CHANGE_PROPERTY)) {
+          eisbrecherContainer.setVisible(!DataController.getINSTANCE().isDozent());
+        }
+      }
+    });
 
     for (int i = 0; i < 3; i++) {
       Label label = new Label(teamMitgliedDTO.getEisbrecher().get(i));
