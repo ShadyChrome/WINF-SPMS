@@ -482,3 +482,25 @@
     -fx-border-width: 2;
     -fx-border-color: transparent transparent gray transparent;
 }
+
+.grid-item-top {
+    -fx-border-color: rgb(195, 202, 216) transparent rgb(195, 202, 216) rgb(195, 202, 216) !important;
+    -fx-background-color: rgb(229, 234, 244);
+}
+
+.grid-item-top-right {
+    -fx-border-color: rgb(195, 202, 216) !important;
+    -fx-background-color: rgb(229, 234, 244);
+}
+
+.grid-item-left {
+    -fx-background-color: rgb(229, 234, 244);
+}
+
+.grid-item-right {
+    -fx-border-color: transparent rgb(195, 202, 216)  rgb(195, 202, 216) rgb(195, 202, 216) !important;
+}
+
+.jfx-radio-button .jfx-rippler {
+    -jfx-rippler-fill: null;
+}

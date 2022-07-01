@@ -16,9 +16,10 @@ public class TeamPage implements TabPages {
   private int row = 0;
   private int col = 0;
   private ScrollPane scrollPane;
+  private GridPane gridPane;
 
   public TeamPage() {
-    GridPane gridPane = new GridPane();
+    gridPane = new GridPane();
     gridPane.setVgap(12);
 
     ColumnConstraints col1 = new ColumnConstraints();
@@ -64,5 +65,23 @@ public class TeamPage implements TabPages {
   @Override
   public Node getCenterNode() {
     return this.scrollPane;
+  }
+
+  @Override
+  public void update() {
+    gridPane.getChildren().clear();
+    row = 0;
+    col = 0;
+
+    for (TeamMitgliedDTO teamMitgliedDTO : DataController.getINSTANCE().getTeamMitglieder()) {
+      if (col > 2) {
+        col = 0;
+        row++;
+      }
+      Node content = new TeamMemberWidget(teamMitgliedDTO).getContent();
+      gridPane.add(content, col, row);
+      GridPane.setHgrow(content, Priority.ALWAYS);
+      col++;
+    }
   }
 }
