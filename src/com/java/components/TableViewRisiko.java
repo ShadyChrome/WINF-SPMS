@@ -1,6 +1,6 @@
 package com.java.components;
 
-import com.java.data.RisikoDTO;
+import com.java.data.dto.RisikoDTO;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectWrapper;

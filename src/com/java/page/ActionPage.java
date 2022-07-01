@@ -1,41 +1,27 @@
 package com.java.page;
 
 import com.java.actions.ActionItem;
-import com.java.data.DataController;
-import com.java.data.ImagesEnum;
-import com.java.data.PersonaEnum;
-import com.java.data.TeamDTO;
+import com.java.controller.DataController;
+import com.java.data.enums.ImagesEnum;
+import com.java.data.enums.PersonaEnum;
+import com.java.data.dto.TeamDTO;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.util.Pair;
-
-import java.util.Optional;
 
 import static com.java.utility.UIFactory.createHBoxContainer;
 

@@ -1,9 +1,9 @@
 package com.java.page;
 
-import com.java.data.ChanceDTO;
-import com.java.data.DataController;
-import com.java.data.RisikoDTO;
-import com.java.data.TeamMitgliedDTO;
+import com.java.data.dto.ChanceDTO;
+import com.java.controller.DataController;
+import com.java.data.dto.RisikoDTO;
+import com.java.data.dto.TeamMitgliedDTO;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.geometry.Insets;

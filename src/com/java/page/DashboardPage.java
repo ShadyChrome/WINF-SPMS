@@ -1,8 +1,8 @@
 package com.java.page;
 
-import com.java.data.DataController;
-import com.java.data.MeilensteinDTO;
-import com.java.data.TeamDTO;
+import com.java.controller.DataController;
+import com.java.data.dto.MeilensteinDTO;
+import com.java.data.dto.TeamDTO;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;

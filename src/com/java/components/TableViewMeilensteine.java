@@ -1,14 +1,12 @@
 package com.java.components;
 
-import com.java.data.AbgabeArtEnum;
-import com.java.data.BewertungsArtEnum;
-import com.java.data.MeilensteinDTO;
-import com.java.data.RisikoDTO;
+import com.java.data.enums.AbgabeArtEnum;
+import com.java.data.enums.BewertungsArtEnum;
+import com.java.data.dto.MeilensteinDTO;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TableViewMeilensteine extends TableView<MeilensteinDTO> {

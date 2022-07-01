@@ -1,6 +1,6 @@
 package com.java;
 
-import com.java.data.DataController;
+import com.java.controller.DataController;
 import com.java.page.MainPage;
 import javafx.application.Application;
 import javafx.scene.Scene;

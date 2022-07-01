@@ -1,6 +1,6 @@
 package com.java.page;
 
-import com.java.data.FragenStyleEnum;
+import com.java.data.enums.FragenStyleEnum;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXChipView;

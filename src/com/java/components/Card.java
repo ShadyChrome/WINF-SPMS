@@ -1,6 +1,6 @@
 package com.java.components;
 
-import com.java.data.ImagesEnum;
+import com.java.data.enums.ImagesEnum;
 import com.java.utility.IconFactory;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

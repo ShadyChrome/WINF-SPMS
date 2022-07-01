@@ -1,5 +1,7 @@
-package com.java.data;
+package com.java.data.dto;
 
+import com.java.data.enums.AbgabeArtEnum;
+import com.java.data.enums.BewertungsArtEnum;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;

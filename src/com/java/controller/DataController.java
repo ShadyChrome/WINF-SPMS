@@ -1,5 +1,17 @@
-package com.java.data;
+package com.java.controller;
 
+import com.java.data.enums.AbgabeArtEnum;
+import com.java.data.enums.BewertungsArtEnum;
+import com.java.data.dto.ChanceDTO;
+import com.java.data.enums.FragenStyleEnum;
+import com.java.data.enums.ImagesEnum;
+import com.java.data.dto.MeilensteinDTO;
+import com.java.data.dto.NachrichtDTO;
+import com.java.data.enums.PersonaEnum;
+import com.java.data.dto.RisikoDTO;
+import com.java.data.dto.TeamDTO;
+import com.java.data.dto.TeamMitgliedDTO;
+import com.java.data.dto.UserStoryDTO;
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,6 +113,10 @@ public class DataController {
       Arrays.asList(new Pair("16.04.2022", "m1_kranz.pdf"), new Pair("21.04.2022", "m2_kranz.pdf"), new Pair("", ""), new Pair("", "")),
       Arrays.asList(new Pair("14.04.2022", "m1_schwital.pdf"), new Pair("18.04.2022", "m2_schwital.pdf"), new Pair("", ""), new Pair("", "")),
       Arrays.asList(new Pair("14.04.2022", "m1_gorlitz.pdf"), new Pair("18.04.2022", "m2_gorlitz.pdf"), new Pair("", ""), new Pair("", ""))
+  );
+
+  private ObservableList<UserStoryDTO> userStoryList = FXCollections.observableArrayList(
+      new UserStoryDTO("Projektstruktur definieren")
   );
 
   private String exampleGesamtFortschrittMINF1 = "50%";
@@ -222,5 +238,9 @@ public class DataController {
 
   public Stage getPrimaryStage() {
     return primaryStage;
+  }
+
+  public ObservableList<UserStoryDTO> getUserStoryList() {
+    return userStoryList;
   }
 }

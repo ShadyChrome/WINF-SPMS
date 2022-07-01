@@ -1,10 +1,10 @@
 package com.java.page;
 
 import com.java.components.IntegerTextField;
-import com.java.data.BelbinRollenEnum;
-import com.java.data.DataController;
-import com.java.data.ImagesEnum;
-import com.java.data.TeamMitgliedDTO;
+import com.java.data.enums.BelbinRollenEnum;
+import com.java.controller.DataController;
+import com.java.data.enums.ImagesEnum;
+import com.java.data.dto.TeamMitgliedDTO;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;

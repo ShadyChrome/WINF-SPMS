@@ -1,8 +1,8 @@
 package com.java.page;
 
 import com.java.components.TeamMemberWidget;
-import com.java.data.DataController;
-import com.java.data.TeamMitgliedDTO;
+import com.java.controller.DataController;
+import com.java.data.dto.TeamMitgliedDTO;
 import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
 import javafx.scene.Node;

@@ -1,7 +1,7 @@
 package com.java.page;
 
 import com.java.actions.ActionItem;
-import com.java.data.ImagesEnum;
+import com.java.data.enums.ImagesEnum;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.jfoenix.controls.JFXToggleNode;

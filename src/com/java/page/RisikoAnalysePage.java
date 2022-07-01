@@ -2,13 +2,10 @@ package com.java.page;
 
 import com.java.components.Card;
 import com.java.components.TableViewRisiko;
-import com.java.data.DataController;
-import com.java.data.RisikoDTO;
+import com.java.controller.DataController;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;

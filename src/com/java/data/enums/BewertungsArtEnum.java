@@ -1,4 +1,4 @@
-package com.java.data;
+package com.java.data.enums;
 
 public enum BewertungsArtEnum {
   OHNE_BEWERTUNG("Ohne Bewertung"),

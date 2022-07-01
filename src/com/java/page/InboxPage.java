@@ -1,8 +1,8 @@
 package com.java.page;
 
 import com.java.components.InboxListCell;
-import com.java.data.DataController;
-import com.java.data.NachrichtDTO;
+import com.java.controller.DataController;
+import com.java.data.dto.NachrichtDTO;
 import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;

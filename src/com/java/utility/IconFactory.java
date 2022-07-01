@@ -1,6 +1,6 @@
 package com.java.utility;
 
-import com.java.data.ImagesEnum;
+import com.java.data.enums.ImagesEnum;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;

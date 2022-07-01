@@ -1,4 +1,6 @@
-package com.java.data;
+package com.java.data.dto;
+
+import com.java.data.enums.FragenStyleEnum;
 
 import java.util.ArrayList;
 import java.util.List;

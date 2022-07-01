@@ -1,8 +1,8 @@
 package com.java.components;
 
-import com.java.data.DataController;
-import com.java.data.ImagesEnum;
-import com.java.data.TeamMitgliedDTO;
+import com.java.controller.DataController;
+import com.java.data.enums.ImagesEnum;
+import com.java.data.dto.TeamMitgliedDTO;
 import com.java.page.TabPages;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;

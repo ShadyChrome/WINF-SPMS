@@ -1,4 +1,4 @@
-package com.java.data;
+package com.java.data.enums;
 
 public enum ImagesEnum {
   LOGO("/com/java/resources/images/logo.png"),
