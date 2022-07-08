@@ -4,7 +4,9 @@ import com.java.data.dto.UserStoryDTO;
 import com.java.data.enums.SchweregradEnum;
 import com.java.data.enums.UserStoryStatusEnum;
 import com.java.model.DataModelUserStory;
+import com.java.utility.UIFactory;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,9 +14,8 @@ import javafx.collections.FXCollections;
 import javafx.scene.layout.GridPane;
 
 public class DetailsViewerUserStory extends GridPane {
-  private IntegerTextField idTf;
   private JFXTextField nameTf;
-  private JFXTextField beschreibungTf;
+  private JFXTextArea beschreibungTf;
   private DoubleTextField priorityTf;
   private JFXComboBox<SchweregradEnum> severityCb;
   private JFXTextField assigneeTf;
@@ -30,7 +31,6 @@ public class DetailsViewerUserStory extends GridPane {
     @Override
     public void changed(ObservableValue<? extends UserStoryDTO> observable, UserStoryDTO oldUserStory, UserStoryDTO newUserStory) {
       if (oldUserStory != null) {
-        idTf.textProperty().unbindBidirectional(oldUserStory.idProperty());
         nameTf.textProperty().unbindBidirectional(oldUserStory.nameProperty());
         beschreibungTf.textProperty().unbindBidirectional(oldUserStory.beschreibungProperty());
         priorityTf.textProperty().unbindBidirectional(oldUserStory.prioritätProperty());
@@ -44,7 +44,6 @@ public class DetailsViewerUserStory extends GridPane {
       }
 
       if (newUserStory == null) {
-        idTf.clear();
         nameTf.clear();
         beschreibungTf.clear();
         priorityTf.clear();
@@ -57,17 +56,16 @@ public class DetailsViewerUserStory extends GridPane {
         statusCb.getSelectionModel().clearSelection();
 
       } else {
-        idTf.textProperty().bindBidirectional(oldUserStory.idProperty());
-        nameTf.textProperty().bindBidirectional(oldUserStory.nameProperty());
-        beschreibungTf.textProperty().bindBidirectional(oldUserStory.beschreibungProperty());
-        priorityTf.textProperty().bindBidirectional(oldUserStory.prioritätProperty());
-        severityCb.valueProperty().bindBidirectional(oldUserStory.severityProperty());
-        assigneeTf.textProperty().bindBidirectional(oldUserStory.assigneeProperty());
-        teamTf.textProperty().bindBidirectional(oldUserStory.teamProperty());
-        authorTf.textProperty().bindBidirectional(oldUserStory.authorProperty());
-        plannedInTf.textProperty().bindBidirectional(oldUserStory.plannedInProperty());
-        estimationTf.textProperty().bindBidirectional(oldUserStory.estimationProperty());
-        statusCb.valueProperty().bindBidirectional(oldUserStory.statusProperty());
+        nameTf.textProperty().bindBidirectional(newUserStory.nameProperty());
+        beschreibungTf.textProperty().bindBidirectional(newUserStory.beschreibungProperty());
+        priorityTf.textProperty().bindBidirectional(newUserStory.prioritätProperty());
+        severityCb.valueProperty().bindBidirectional(newUserStory.severityProperty());
+        assigneeTf.textProperty().bindBidirectional(newUserStory.assigneeProperty());
+        teamTf.textProperty().bindBidirectional(newUserStory.teamProperty());
+        authorTf.textProperty().bindBidirectional(newUserStory.authorProperty());
+        plannedInTf.textProperty().bindBidirectional(newUserStory.plannedInProperty());
+        estimationTf.textProperty().bindBidirectional(newUserStory.estimationProperty());
+        statusCb.valueProperty().bindBidirectional(newUserStory.statusProperty());
       }
     }
   };
@@ -78,9 +76,8 @@ public class DetailsViewerUserStory extends GridPane {
     setHgap(12);
     setVgap(12);
 
-    idTf = new IntegerTextField();
     nameTf = new JFXTextField();
-    beschreibungTf = new IntegerTextField();
+    beschreibungTf = new JFXTextArea();
     priorityTf = new DoubleTextField();
     severityCb = new JFXComboBox<>(FXCollections.observableArrayList(SchweregradEnum.values()));
     assigneeTf = new JFXTextField();
@@ -89,8 +86,23 @@ public class DetailsViewerUserStory extends GridPane {
     plannedInTf = new JFXTextField();
     estimationTf = new IntegerTextField();
     statusCb = new JFXComboBox<>(FXCollections.observableArrayList(UserStoryStatusEnum.values()));
-  }
 
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Titel: "), nameTf), 0, 0);
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Author: "), authorTf), 1, 0);
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Abschätzung: "),estimationTf), 2, 0);
+
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Status: "),statusCb), 0, 1);
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Verantwortlicher: "),assigneeTf), 1, 1);
+
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Schweregrad: "),severityCb), 0, 2);
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Team: "),teamTf), 1, 2);
+
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Priorität: "),priorityTf), 0, 3);
+    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Geplant in: "),plannedInTf), 1, 3);
+
+    add(UIFactory.createFormularLabel("Beschreibung"), 0, 4, 3, 1);
+    add(beschreibungTf, 0, 5, 3, 2);
+  }
 
   public void setDataModel(DataModelUserStory dataModel) {
     if (this.model != null) {

@@ -12,6 +12,8 @@ import com.java.data.enums.BewertungsArtEnum;
 import com.java.data.enums.FragenStyleEnum;
 import com.java.data.enums.ImagesEnum;
 import com.java.data.enums.PersonaEnum;
+import com.java.data.enums.SchweregradEnum;
+import com.java.data.enums.UserStoryStatusEnum;
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -116,7 +118,7 @@ public class DataController {
   );
 
   private ObservableList<UserStoryDTO> userStoryList = FXCollections.observableArrayList(
-      new UserStoryDTO("Projektstruktur definieren")
+      new UserStoryDTO("0001", "Projektstruktur definieren", "", "50.0", SchweregradEnum.SHOULD_AHVE, "Leopold Thor", "WINF1", "Max Müller", "Iteration #1 (01.07.22 - 29.07.22)", "5", UserStoryStatusEnum.DRAFT)
   );
 
   private String exampleGesamtFortschrittMINF1 = "50%";
@@ -242,5 +244,9 @@ public class DataController {
 
   public ObservableList<UserStoryDTO> getUserStoryList() {
     return userStoryList;
+  }
+
+  public void addUserStory(String name) {
+    userStoryList.add(new UserStoryDTO(name));
   }
 }

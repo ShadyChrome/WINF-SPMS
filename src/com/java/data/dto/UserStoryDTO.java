@@ -1,25 +1,42 @@
 package com.java.data.dto;
 
+import com.java.controller.DataController;
 import com.java.data.enums.SchweregradEnum;
 import com.java.data.enums.UserStoryStatusEnum;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class UserStoryDTO {
-  private SimpleStringProperty id;
-  private SimpleStringProperty name;
-  private SimpleStringProperty beschreibung;
+  private SimpleStringProperty id = new SimpleStringProperty();
+  private SimpleStringProperty name = new SimpleStringProperty();
+  private SimpleStringProperty beschreibung = new SimpleStringProperty();
   private SimpleStringProperty priorität = new SimpleStringProperty("" + 50.0);
   private SimpleObjectProperty<SchweregradEnum> severity = new SimpleObjectProperty<>(SchweregradEnum.SHOULD_AHVE);
-  private SimpleStringProperty assignee;
-  private SimpleStringProperty team;
-  private SimpleStringProperty author;
-  private SimpleStringProperty plannedIn;
-  private SimpleStringProperty estimation;
+  private SimpleStringProperty assignee = new SimpleStringProperty();
+  private SimpleStringProperty team = new SimpleStringProperty();
+  private SimpleStringProperty author = new SimpleStringProperty();
+  private SimpleStringProperty plannedIn = new SimpleStringProperty();
+  private SimpleStringProperty estimation = new SimpleStringProperty("0");
   private SimpleObjectProperty<UserStoryStatusEnum> status = new SimpleObjectProperty<>(UserStoryStatusEnum.DRAFT);
 
   public UserStoryDTO(String name) {
+    setId(String.format("%04d", DataController.getINSTANCE().getUserStoryList().size() + 1));
     setName(name);
+  }
+
+  public UserStoryDTO(String id, String name, String beschreibung, String priorität, SchweregradEnum severity, String assignee,
+                      String team, String author, String plannedIn, String estimation, UserStoryStatusEnum status) {
+    setId(id);
+    setName(name);
+    setBeschreibung(beschreibung);
+    setPriorität(priorität);
+    setSeverity(severity);
+    setAssignee(assignee);
+    setTeam(team);
+    setAuthor(author);
+    setPlannedIn(plannedIn);
+    setEstimation(estimation);
+    setStatus(status);
   }
 
   public String getId() {

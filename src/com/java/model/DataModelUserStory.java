@@ -21,7 +21,7 @@ public class DataModelUserStory {
     this.currentUserStory.set(currentUserStory);
   }
 
-  public ObservableList<UserStoryDTO> getVolkData() {
+  public ObservableList<UserStoryDTO> getUserStories() {
     return DataController.getINSTANCE().getUserStoryList();
   }
 }
