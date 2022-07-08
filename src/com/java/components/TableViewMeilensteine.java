@@ -1,8 +1,8 @@
 package com.java.components;
 
+import com.java.data.dto.MeilensteinDTO;
 import com.java.data.enums.AbgabeArtEnum;
 import com.java.data.enums.BewertungsArtEnum;
-import com.java.data.dto.MeilensteinDTO;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;

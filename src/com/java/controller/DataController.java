@@ -1,17 +1,17 @@
 package com.java.controller;
 
-import com.java.data.enums.AbgabeArtEnum;
-import com.java.data.enums.BewertungsArtEnum;
 import com.java.data.dto.ChanceDTO;
-import com.java.data.enums.FragenStyleEnum;
-import com.java.data.enums.ImagesEnum;
 import com.java.data.dto.MeilensteinDTO;
 import com.java.data.dto.NachrichtDTO;
-import com.java.data.enums.PersonaEnum;
 import com.java.data.dto.RisikoDTO;
 import com.java.data.dto.TeamDTO;
 import com.java.data.dto.TeamMitgliedDTO;
 import com.java.data.dto.UserStoryDTO;
+import com.java.data.enums.AbgabeArtEnum;
+import com.java.data.enums.BewertungsArtEnum;
+import com.java.data.enums.FragenStyleEnum;
+import com.java.data.enums.ImagesEnum;
+import com.java.data.enums.PersonaEnum;
 import com.java.utility.IconFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,10 +35,10 @@ public class DataController {
 
   private List<TeamMitgliedDTO> teamMitgliederList = new ArrayList<>(Arrays.asList(
       new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Leopold Thor", 4, "Data Analyst", "GLS Bank", "Implementer", "Was mich besonders an diesem Projekt interessiert, ist die Möglichkeit etwas zu entwickeln, das langfristig für alle Studierende relevant sein kann.", Arrays.asList("Zielorientiert", "Zeitmanagement"), Arrays.asList("Geduld bei Aufgabenabarbeitung bewahren"), Arrays.asList("Schildkröte", "Fight Club", "Fliegen")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Leila Schmidt",  6, "Kundenkontaktmanagement", "Stromnetz Berlin GmbH", "Implementer", "Ich freue mich darauf, etwas zu programmieren, was auch in der Praxis genutzt wird.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Avatar", "Unsichtbar sein")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Maria Löwe",  6, "Content Managerin", "HWR Berlin", "Teamworker", "Ich erhoffe mir neuen Input im Hinblick auf das Thema Projektmanagement.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Glück")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Jean Pierre",  4, "Support", "ITZBund", "Resource Investigator", "Ich habe bisher noch keine konkreten Vorstellung, freue mich auf die Zusammenarbeit.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Max Mustermann",  4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meiine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Spider Man", "Teleportieren"))
+      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Leila Schmidt", 6, "Kundenkontaktmanagement", "Stromnetz Berlin GmbH", "Implementer", "Ich freue mich darauf, etwas zu programmieren, was auch in der Praxis genutzt wird.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Avatar", "Unsichtbar sein")),
+      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Maria Löwe", 6, "Content Managerin", "HWR Berlin", "Teamworker", "Ich erhoffe mir neuen Input im Hinblick auf das Thema Projektmanagement.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Glück")),
+      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Jean Pierre", 4, "Support", "ITZBund", "Resource Investigator", "Ich habe bisher noch keine konkreten Vorstellung, freue mich auf die Zusammenarbeit.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
+      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Max Mustermann", 4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meiine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Spider Man", "Teleportieren"))
   ));
 
   private List<NachrichtDTO> nachrichtenList = FXCollections.observableArrayList(

@@ -1,7 +1,7 @@
 package com.java.page;
 
-import com.java.data.dto.ChanceDTO;
 import com.java.controller.DataController;
+import com.java.data.dto.ChanceDTO;
 import com.java.data.dto.RisikoDTO;
 import com.java.data.dto.TeamMitgliedDTO;
 import com.java.utility.UIFactory;

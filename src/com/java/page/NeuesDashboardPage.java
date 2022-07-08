@@ -95,6 +95,6 @@ public class NeuesDashboardPage implements TabPages {
         addDeleteContainer,
         assignTeamContainer,
         absendenContainer
-        ));
+    ));
   }
 }

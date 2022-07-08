@@ -7,8 +7,7 @@ public enum UserStoryStatusEnum {
   IN_PROGRESS("Laufend"),
   READY_FOR_TEST("Testbar"),
   COMPLETED("Abgeschlossen"),
-  FAILED("Fehlgeschlagen")
-  ;
+  FAILED("Fehlgeschlagen");
 
   private String name;
 

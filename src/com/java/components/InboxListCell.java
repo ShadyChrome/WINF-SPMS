@@ -1,7 +1,7 @@
 package com.java.components;
 
-import com.java.data.enums.ImagesEnum;
 import com.java.data.dto.NachrichtDTO;
+import com.java.data.enums.ImagesEnum;
 import com.java.utility.IconFactory;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTooltip;

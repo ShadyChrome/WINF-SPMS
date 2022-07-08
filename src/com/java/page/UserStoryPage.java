@@ -1,0 +1,15 @@
+package com.java.page;
+
+import javafx.scene.Node;
+
+public class UserStoryPage implements TabPages {
+  @Override
+  public Node getLeftNode() {
+    return null;
+  }
+
+  @Override
+  public Node getCenterNode() {
+    return null;
+  }
+}

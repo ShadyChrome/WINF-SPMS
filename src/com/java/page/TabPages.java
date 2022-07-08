@@ -21,10 +21,15 @@ public interface TabPages {
   String RISOKO_ANALYSE_PAGE_PROPERTY = "risiko_analyse_page_property";
   String NEUES_DASHBOARD_PAGE_PROPERTY = "neues_dashboard_page_property";
   String DASHBOARD_PAGE_PROPERTY = "dashboard_page_property";
+  String USER_STORY_PAGE_PROPERTY = "user_story_page_property";
+  String PLAN_BOARD_PAGE_PROPERTY = "plan_board_page_property";
 
   Node getLeftNode();
 
   Node getCenterNode();
 
-  default void update() {};
+  default void update() {
+  }
+
+  ;
 }

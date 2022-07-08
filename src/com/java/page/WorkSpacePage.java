@@ -15,6 +15,7 @@ import static com.java.page.TabPages.INBOX_PAGE_PROPERTY;
 import static com.java.page.TabPages.INNOVATION_PAGE_PROPERTY;
 import static com.java.page.TabPages.NEUES_DASHBOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.PERSONA_CHANGE_PROPERTY;
+import static com.java.page.TabPages.PLAN_BOARD_PAGE_PROPERTY;
 import static com.java.page.TabPages.RISOKO_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_ANALYSE_PAGE_PROPERTY;
 import static com.java.page.TabPages.SWOT_PAGE_PROPERTY;
@@ -23,6 +24,7 @@ import static com.java.page.TabPages.TEAM_MITGLIED_PAGE_PROPERTY;
 import static com.java.page.TabPages.TEAM_PAGE_PROPERTY;
 import static com.java.page.TabPages.TO_BE_PAGE_PROPERTY;
 import static com.java.page.TabPages.TRENDS_PAGE_PROPERTY;
+import static com.java.page.TabPages.USER_STORY_PAGE_PROPERTY;
 
 public class WorkSpacePage {
 
@@ -45,6 +47,8 @@ public class WorkSpacePage {
     pageMap.put(RISOKO_ANALYSE_PAGE_PROPERTY, new RisikoAnalysePage());
     pageMap.put(NEUES_DASHBOARD_PAGE_PROPERTY, new NeuesDashboardPage());
     pageMap.put(DASHBOARD_PAGE_PROPERTY, new DashboardPage());
+    pageMap.put(USER_STORY_PAGE_PROPERTY, new UserStoryPage());
+    pageMap.put(PLAN_BOARD_PAGE_PROPERTY, new PlanBoardPage());
 
     this.root = new BorderPane();
 

@@ -498,7 +498,7 @@
 }
 
 .grid-item-right {
-    -fx-border-color: transparent rgb(195, 202, 216)  rgb(195, 202, 216) rgb(195, 202, 216) !important;
+    -fx-border-color: transparent rgb(195, 202, 216) rgb(195, 202, 216) rgb(195, 202, 216) !important;
 }
 
 .jfx-radio-button .jfx-rippler {

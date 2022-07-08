@@ -2,9 +2,9 @@ package com.java.page;
 
 import com.java.actions.ActionItem;
 import com.java.controller.DataController;
+import com.java.data.dto.TeamDTO;
 import com.java.data.enums.ImagesEnum;
 import com.java.data.enums.PersonaEnum;
-import com.java.data.dto.TeamDTO;
 import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
