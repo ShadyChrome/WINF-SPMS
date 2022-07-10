@@ -22,6 +22,7 @@ public class TeamPage implements TabPages {
   private int col = 0;
   private ScrollPane scrollPane;
   private GridPane gridPane;
+  private ImageView radarChart;
 
   public TeamPage() {
     gridPane = new GridPane();
@@ -46,7 +47,10 @@ public class TeamPage implements TabPages {
       col++;
     }
 
-    VBox formularVBox = UIFactory.createFormularVBox(12, gridPane, new ImageView(IconFactory.getImage(ImagesEnum.RADARCHART)));
+    radarChart = new ImageView();
+    radarChart.setImage(DataController.getINSTANCE().getActiveTeam().toString().contains("1") ? IconFactory.getImage(ImagesEnum.RADARCHART) :
+        IconFactory.getImage(ImagesEnum.RADARCHART_2));
+    VBox formularVBox = UIFactory.createFormularVBox(12, gridPane, radarChart);
     formularVBox.setAlignment(Pos.CENTER);
 
     this.scrollPane = UIFactory.createScrollPane(formularVBox);
@@ -91,5 +95,7 @@ public class TeamPage implements TabPages {
       GridPane.setHgrow(content, Priority.ALWAYS);
       col++;
     }
+    radarChart.setImage(DataController.getINSTANCE().getActiveTeam().toString().contains("1") ? IconFactory.getImage(ImagesEnum.RADARCHART) :
+        IconFactory.getImage(ImagesEnum.RADARCHART_2));
   }
 }

@@ -23,6 +23,7 @@ public enum ImagesEnum {
   SCHOOL("/com/java/resources/images/school.png"),
   DELETE("/com/java/resources/images/delete.png"),
   RADARCHART("/com/java/resources/images/radarchart.png"),
+  RADARCHART_2("/com/java/resources/images/radarchart2.png"),
   ;
 
   private final String path;
