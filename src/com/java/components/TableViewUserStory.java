@@ -16,6 +16,7 @@ public class TableViewUserStory extends TableView<UserStoryDTO> {
   private TableColumn<UserStoryDTO, String> assignee;
   private TableColumn<UserStoryDTO, String> team;
   private TableColumn<UserStoryDTO, String> status;
+  private TableColumn<UserStoryDTO, String> estimation;
 
   private DataModelUserStory model;
 
@@ -33,11 +34,11 @@ public class TableViewUserStory extends TableView<UserStoryDTO> {
 
   private TableColumn[] createTableColumns() {
     id = new TableColumn("Id");
-    id.setMinWidth(100);
+    id.setMinWidth(50);
     id.setCellValueFactory(new PropertyValueFactory("id"));
 
     name = new TableColumn("Name");
-    name.setMinWidth(150);
+    name.setMinWidth(200);
     name.setCellValueFactory(new PropertyValueFactory("name"));
 
     priorität = new TableColumn("Priorität");
@@ -60,7 +61,11 @@ public class TableViewUserStory extends TableView<UserStoryDTO> {
     status.setMinWidth(150);
     status.setCellValueFactory(new PropertyValueFactory("status"));
 
-    TableColumn[] tableColumns = {id, name, status, assignee, team, priorität, severity};
+    estimation = new TableColumn("Abschätzung");
+    estimation.setMinWidth(50);
+    estimation.setCellValueFactory(new PropertyValueFactory("estimation"));
+
+    TableColumn[] tableColumns = {id, name, status, assignee, team, priorität, severity, estimation};
 
     return tableColumns;
   }

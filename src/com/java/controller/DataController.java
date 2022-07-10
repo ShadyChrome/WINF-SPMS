@@ -11,6 +11,7 @@ import com.java.data.enums.AbgabeArtEnum;
 import com.java.data.enums.BewertungsArtEnum;
 import com.java.data.enums.FragenStyleEnum;
 import com.java.data.enums.ImagesEnum;
+import com.java.data.enums.IterationEnum;
 import com.java.data.enums.PersonaEnum;
 import com.java.data.enums.SchweregradEnum;
 import com.java.data.enums.UserStoryStatusEnum;
@@ -21,9 +22,11 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DataController {
 
@@ -35,19 +38,35 @@ public class DataController {
     return INSTANCE;
   }
 
-  private List<TeamMitgliedDTO> teamMitgliederList = new ArrayList<>(Arrays.asList(
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Leopold Thor", 4, "Data Analyst", "GLS Bank", "Implementer", "Was mich besonders an diesem Projekt interessiert, ist die Möglichkeit etwas zu entwickeln, das langfristig für alle Studierende relevant sein kann.", Arrays.asList("Zielorientiert", "Zeitmanagement"), Arrays.asList("Geduld bei Aufgabenabarbeitung bewahren"), Arrays.asList("Schildkröte", "Fight Club", "Fliegen")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Leila Schmidt", 6, "Kundenkontaktmanagement", "Stromnetz Berlin GmbH", "Implementer", "Ich freue mich darauf, etwas zu programmieren, was auch in der Praxis genutzt wird.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Avatar", "Unsichtbar sein")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Maria Löwe", 6, "Content Managerin", "HWR Berlin", "Teamworker", "Ich erhoffe mir neuen Input im Hinblick auf das Thema Projektmanagement.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Glück")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Jean Pierre", 4, "Support", "ITZBund", "Resource Investigator", "Ich habe bisher noch keine konkreten Vorstellung, freue mich auf die Zusammenarbeit.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
-      new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Max Mustermann", 4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meiine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Spider Man", "Teleportieren"))
-  ));
+  private ObservableList<ObservableList<TeamMitgliedDTO>> teamMitgliederList = FXCollections.observableArrayList(
+      FXCollections.observableArrayList(
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Leopold Thor", 4, "Data Analyst", "GLS Bank", "Implementer", "Was mich besonders an diesem Projekt interessiert, ist die Möglichkeit etwas zu entwickeln, das langfristig für alle Studierende relevant sein kann.", Arrays.asList("Zielorientiert", "Zeitmanagement"), Arrays.asList("Geduld bei Aufgabenabarbeitung bewahren"), Arrays.asList("Schildkröte", "Fight Club", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Leila Schmidt", 6, "Kundenkontaktmanagement", "Stromnetz Berlin GmbH", "Implementer", "Ich freue mich darauf, etwas zu programmieren, was auch in der Praxis genutzt wird.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Avatar", "Unsichtbar sein")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Maria Löwe", 6, "Content Managerin", "HWR Berlin", "Teamworker", "Ich erhoffe mir neuen Input im Hinblick auf das Thema Projektmanagement.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Glück")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Jean Pierre", 4, "Support", "ITZBund", "Resource Investigator", "Ich habe bisher noch keine konkreten Vorstellung, freue mich auf die Zusammenarbeit.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Max Mustermann", 4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Spider Man", "Teleportieren"))
+      ),
+      FXCollections.observableArrayList(
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Greta Thunberg", 6, "IT-Support", "DKB", "Finisher", "Ich hoffe, dass ich meine Kenntnisse im Kurs vertiefen kann.", Arrays.asList("Zielorientiert", "Zeitmanagement"), Arrays.asList("Geduld bei Aufgabenabarbeitung bewahren"), Arrays.asList("Schildkröte", "Interstellar", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Elon Musk", 6, "Softwareengineer", "Firm GmbH", "Implementer", "Ich habe eigentlich noch keine Ahnung, was mich erwartet.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Kill Bill", "Schnelligkeit")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Olaf Scholz", 6, "SHK IT", "HTW Berlin", "Teamworker", "Ich glaube, dass diese Projektarbeit auch in Zukunft noch viel nutzen hat.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Gedankenkontrolle")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Nico Zimmermann", 4, "Software-Entwickler", "ITZBund", "Resource Investigator", "Projektarbeit sollte Spaß machen.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Lina Lochner", 4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meiine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Superman", "Teleportieren"))
+      ),
+      FXCollections.observableArrayList(
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Filiz Eberth", 4, "Support", "ITZBund", "Resource Investigator", "Ich habe bisher noch keine konkreten Vorstellung, freue mich auf die Zusammenarbeit.", Arrays.asList("Struturierung", "Aufgabenverteilung", "Recherche"), Arrays.asList("Zeitmanagement"), Arrays.asList("Katze", "Titanic", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Kamil Misicher", 4, "Softwareengineer", "ADVA", "Shaper", "Ich glaube, dass das Projekt meine Erfahrung im Programmieren voran bringen wird.", Arrays.asList("Kommunikation", "Planung", "HTML"), Arrays.asList("Programmierung"), Arrays.asList("Falke", "Spider Man", "Teleportieren")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LINH), "Veronique Kranz", 6, "IT-Support", "DKB", "Finisher", "Ich hoffe, dass ich meine Kenntnisse im Kurs vertiefen kann.", Arrays.asList("Zielorientiert", "Zeitmanagement"), Arrays.asList("Geduld bei Aufgabenabarbeitung bewahren"), Arrays.asList("Schildkröte", "Interstellar", "Fliegen")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.LISA), "Peter Schwital", 6, "Softwareengineer", "Firm GmbH", "Implementer", "Ich habe eigentlich noch keine Ahnung, was mich erwartet.", Arrays.asList("HTML", "Programmierung"), Arrays.asList("Angst vor Konflikten"), Arrays.asList("Hund", "Kill Bill", "Schnelligkeit")),
+          new TeamMitgliedDTO(IconFactory.getImage(ImagesEnum.MIMOSA), "Arne Gorlitz", 6, "Content Manager", "HWR Berlin", "Teamworker", "Ich erhoffe mir neuen Input im Hinblick auf das Thema Projektmanagement.", Arrays.asList("Selbständigkeit", "Projektmanagement", "HTML"), Arrays.asList("Fehlende Erfahrung im Projektmanagement"), Arrays.asList("Delfin", "Planet der Affen", "Glück"))
+      )
+  );
 
   private List<NachrichtDTO> nachrichtenList = FXCollections.observableArrayList(
-      new NachrichtDTO("Marcel Koschau", "Jörg Seelenbinder", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null),
-      new NachrichtDTO("Jörg Seelenbinder", "Marcel Koschau", "FAQ", FragenStyleEnum.CHECK_BOX, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
-      new NachrichtDTO("Thuy Linh Phung", "Lisa Spendel", "FAQ", FragenStyleEnum.RADIUS_BUTTON, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
-      new NachrichtDTO("Mimosa Luong", "Thuy Linh Phung", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null)
+      new NachrichtDTO("Leopold Thor", "Max Mustermann", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null),
+      new NachrichtDTO("Jean Pierre", "Leila Schmidt", "FAQ", FragenStyleEnum.CHECK_BOX, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
+      new NachrichtDTO("Max Mustermann", "Jean Pierre", "FAQ", FragenStyleEnum.RADIUS_BUTTON, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
+      new NachrichtDTO("Leila Schmidt", "Maria Löwe", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null)
   );
 
   private ObservableList<RisikoDTO> risikoList = FXCollections.observableArrayList();
@@ -60,8 +79,8 @@ public class DataController {
   );
 
   private ObservableList<TeamDTO> teamList = FXCollections.observableArrayList(
-      new TeamDTO("WINF1", Arrays.asList("Birgitta Hertrampf", "Danny Fechner", "Gunda Siering", "Hans-Gerhard Matthäi", "Liliane Stolze")),
-      new TeamDTO("WINF2", Arrays.asList("Mimosa Luong", "Linh Phung", "Lisa Spendel", "Marcel Koschau", "Jörg Seelenbinder")),
+      new TeamDTO("WINF1", Arrays.asList("Leopold Thor", "Leila Schmidt", "Maria Löwe", "Jean Pierre", "Max Mustermann")),
+      new TeamDTO("WINF2", Arrays.asList("Greta Thunberg", "Elon Musk", "Olaf Scholz", "Nico Zimmermann", "Lina Lochner")),
       new TeamDTO("MINF1", Arrays.asList("Filiz Eberth", "Kamil Misicher", "Veronique Kranz", "Peter Schwital", "Arne Gorlitz"))
   );
 
@@ -76,9 +95,9 @@ public class DataController {
   private ObservableList<List<Pair<String, String>>> exampleAbgabeWINF1 = FXCollections.observableArrayList(
       Arrays.asList(new Pair("15.04.2022", "m1.pdf"), new Pair("24.04.2022", "m2.pdf"), new Pair("", ""), new Pair("", "")),
       Arrays.asList(new Pair("12.04.2022", "m1.docx"), new Pair("21.04.2022", "m2.docx"), new Pair("26.04.2022", "m3.docx"), new Pair("", "")),
-      Arrays.asList(new Pair("14.04.2022", "m1_siering.pdf"), new Pair("21.04.2022", "m2_siering.pdf"), new Pair("", ""), new Pair("", "")),
+      Arrays.asList(new Pair("14.04.2022", "m1_löwe.pdf"), new Pair("21.04.2022", "m2_löwe.pdf"), new Pair("", ""), new Pair("", "")),
       Arrays.asList(new Pair("14.04.2022", "m1.pdf"), new Pair("18.04.2022", "m2.pdf"), new Pair("26.04.2022", "m3.pdf"), new Pair("", "")),
-      Arrays.asList(new Pair("14.04.2022", "m1_stolze.pdf"), new Pair("19.04.2022", "m2_stolze.pdf"), new Pair("", ""), new Pair("", ""))
+      Arrays.asList(new Pair("14.04.2022", "m1_mustermann.pdf"), new Pair("19.04.2022", "m2_mustermann.pdf"), new Pair("", ""), new Pair("", ""))
   );
 
   private String exampleGesamtFortschrittWINF1 = "60%";
@@ -117,9 +136,38 @@ public class DataController {
       Arrays.asList(new Pair("14.04.2022", "m1_gorlitz.pdf"), new Pair("18.04.2022", "m2_gorlitz.pdf"), new Pair("", ""), new Pair("", ""))
   );
 
-  private ObservableList<UserStoryDTO> userStoryList = FXCollections.observableArrayList(
-      new UserStoryDTO("0001", "Projektstruktur definieren", "", "50.0", SchweregradEnum.SHOULD_AHVE, "Leopold Thor", "WINF1", "Max Müller", "Iteration #1 (01.07.22 - 29.07.22)", "5", UserStoryStatusEnum.DRAFT)
+  private ObservableList<ObservableList<UserStoryDTO>> userStoryList = FXCollections.observableArrayList(
+      FXCollections.observableArrayList(
+          new UserStoryDTO("0001", "Projektstruktur definieren", "", "50.0", SchweregradEnum.COULD_HAVE, "Leopold Thor", "WINF1", "Max Mustermann", IterationEnum.ITERATION_1, "3", UserStoryStatusEnum.COMPLETED),
+          new UserStoryDTO("0002", "Risikoanalyse durchführen", "", "75.0", SchweregradEnum.SHOULD_HAVE, "Leila Schmidt", "WINF1", "Max Mustermann", IterationEnum.ITERATION_1, "8", UserStoryStatusEnum.STARTED),
+          new UserStoryDTO("0003", "User Stories definieren", "", "100.0", SchweregradEnum.MUST_HAVE, "Maria Löwe", "WINF1", "Max Mustermann", IterationEnum.ITERATION_1, "5", UserStoryStatusEnum.ACCEPTED),
+          new UserStoryDTO("0005", "Einsendeaufgabe 1", "", "100.0", SchweregradEnum.MUST_HAVE, "", "WINF1", "Jean Pierre", IterationEnum.ITERATION_1, "5", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0006", "Einsendeaufgabe 2", "", "75.0", SchweregradEnum.MUST_HAVE, "", "WINF1", "Jean Pierre", IterationEnum.ITERATION_2, "5", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0007", "Einsendeaufgabe 3", "", "50.0", SchweregradEnum.MUST_HAVE, "", "WINF1", "Jean Pierre", IterationEnum.ITERATION_2, "5", UserStoryStatusEnum.DRAFT)
+      ),
+      FXCollections.observableArrayList(
+          new UserStoryDTO("0101", "Aufgabenübersicht definieren", "", "50.0", SchweregradEnum.COULD_HAVE, "Greta Thunbergr", "WINF2", "Nico Zimmermann", IterationEnum.ITERATION_1, "3", UserStoryStatusEnum.COMPLETED),
+          new UserStoryDTO("0102", "Risikoanalyse durchführen", "", "25.0", SchweregradEnum.COULD_HAVE, "Elon Musk", "WINF2", "Nico Zimmermann", IterationEnum.ITERATION_1, "2", UserStoryStatusEnum.STARTED),
+          new UserStoryDTO("0103", "User Stories definieren", "", "75.0", SchweregradEnum.MUST_HAVE, "Olaf Scholz", "WINF2", "Nico Zimmermann", IterationEnum.ITERATION_1, "5", UserStoryStatusEnum.ACCEPTED),
+          new UserStoryDTO("0105", "Einsendeaufgabe 1", "", "100.0", SchweregradEnum.MUST_HAVE, "", "WINF2", "Lina Lochner", IterationEnum.ITERATION_2, "5", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0106", "Einsendeaufgabe 2", "", "75.0", SchweregradEnum.MUST_HAVE, "", "WINF2", "Lina Lochner", IterationEnum.ITERATION_2, "5", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0107", "Einsendeaufgabe 3", "", "50.0", SchweregradEnum.MUST_HAVE, "", "WINF2", "Lina Lochner", IterationEnum.ITERATION_2, "5", UserStoryStatusEnum.DRAFT)
+      ),
+      FXCollections.observableArrayList(
+          new UserStoryDTO("0201", "Aufgabenübersicht definieren", "", "100.0", SchweregradEnum.MUST_HAVE, "Kamil Misicher", "MINF1", "Filiz Eberth", IterationEnum.ITERATION_1, "2", UserStoryStatusEnum.COMPLETED),
+          new UserStoryDTO("0202", "Risikoanalyse durchführen", "", "50.0", SchweregradEnum.COULD_HAVE, "Veronique Kranz", "MINF1", "Filiz Eberth", IterationEnum.ITERATION_1, "2", UserStoryStatusEnum.STARTED),
+          new UserStoryDTO("0203", "User Stories definieren", "", "75.0", SchweregradEnum.SHOULD_HAVE, "Peter Schwital", "MINF1", "Filiz Eberth", IterationEnum.ITERATION_1, "2", UserStoryStatusEnum.ACCEPTED),
+          new UserStoryDTO("0205", "Einsendeaufgabe 1", "", "100.0", SchweregradEnum.MUST_HAVE, "", "MINF1", "Arne Gorlitz", IterationEnum.ITERATION_1, "8", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0206", "Einsendeaufgabe 2", "", "75.0", SchweregradEnum.MUST_HAVE, "", "MINF1", "Arne Gorlitz", IterationEnum.ITERATION_2, "8", UserStoryStatusEnum.DRAFT),
+          new UserStoryDTO("0207", "Einsendeaufgabe 3", "", "50.0", SchweregradEnum.MUST_HAVE, "", "MINF1", "Arne Gorlitz", IterationEnum.ITERATION_2, "8", UserStoryStatusEnum.DRAFT)
+      )
   );
+
+  private Map<TeamDTO, ObservableList<UserStoryDTO>> teamUserStoryMap = IntStream.range(0, teamList.size()).boxed()
+      .collect(Collectors.toMap(teamList::get, userStoryList::get));
+
+  private Map<TeamDTO, ObservableList<TeamMitgliedDTO>> teamTeammitgliederMap = IntStream.range(0, teamList.size()).boxed()
+      .collect(Collectors.toMap(teamList::get, teamMitgliederList::get));
 
   private String exampleGesamtFortschrittMINF1 = "50%";
 
@@ -127,11 +175,11 @@ public class DataController {
   private TeamDTO activeTeam;
 
   public List<TeamMitgliedDTO> getTeamMitglieder() {
-    return teamMitgliederList;
+    return getTeamTeammitgliederMap().get(DataController.getINSTANCE().getActiveTeam());
   }
 
   public void addNewTeamMitglied(TeamMitgliedDTO dto) {
-    teamMitgliederList.add(dto);
+    getTeamMitglieder().add(dto);
   }
 
   public List<NachrichtDTO> getNachrichten() {
@@ -243,10 +291,37 @@ public class DataController {
   }
 
   public ObservableList<UserStoryDTO> getUserStoryList() {
-    return userStoryList;
+    return getTeamUserStoryMap().get(getActiveTeam());
+  }
+
+  public ObservableList<UserStoryDTO> getUserStoryList(TeamDTO teamDTO) {
+    return getTeamUserStoryMap().get(teamDTO);
+  }
+
+  public ObservableList<UserStoryDTO> getFilteredUserStoryList(TeamDTO teamDTO, IterationEnum iteration) {
+    ObservableList<UserStoryDTO> userStoryDTOS = getTeamUserStoryMap().get(teamDTO);
+    ObservableList<UserStoryDTO> filteredList = FXCollections.observableArrayList();
+
+    for (UserStoryDTO userStoryDTO : userStoryDTOS) {
+      if (userStoryDTO.getPlannedIn() == iteration) {
+        filteredList.add(userStoryDTO);
+      }
+    }
+    return filteredList;
   }
 
   public void addUserStory(String name) {
-    userStoryList.add(new UserStoryDTO(name));
+    UserStoryDTO dto = new UserStoryDTO(name);
+    dto.setAuthor(DataController.getINSTANCE().getActiveUser());
+    List<UserStoryDTO> userStoryDTOS = getTeamUserStoryMap().get(getActiveTeam());
+    userStoryDTOS.add(dto);
+  }
+
+  public Map<TeamDTO, ObservableList<UserStoryDTO>> getTeamUserStoryMap() {
+    return teamUserStoryMap;
+  }
+
+  public Map<TeamDTO, ObservableList<TeamMitgliedDTO>> getTeamTeammitgliederMap() {
+    return teamTeammitgliederMap;
   }
 }

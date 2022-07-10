@@ -1,6 +1,7 @@
 package com.java.components;
 
 import com.java.data.dto.UserStoryDTO;
+import com.java.data.enums.IterationEnum;
 import com.java.data.enums.SchweregradEnum;
 import com.java.data.enums.UserStoryStatusEnum;
 import com.java.model.DataModelUserStory;
@@ -11,7 +12,10 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 public class DetailsViewerUserStory extends GridPane {
   private JFXTextField nameTf;
@@ -21,7 +25,7 @@ public class DetailsViewerUserStory extends GridPane {
   private JFXTextField assigneeTf;
   private JFXTextField teamTf;
   private JFXTextField authorTf;
-  private JFXTextField plannedInTf;
+  private JFXComboBox<IterationEnum> plannedInCb;
   private IntegerTextField estimationTf;
   private JFXComboBox<UserStoryStatusEnum> statusCb;
 
@@ -38,7 +42,7 @@ public class DetailsViewerUserStory extends GridPane {
         assigneeTf.textProperty().unbindBidirectional(oldUserStory.assigneeProperty());
         teamTf.textProperty().unbindBidirectional(oldUserStory.teamProperty());
         authorTf.textProperty().unbindBidirectional(oldUserStory.authorProperty());
-        plannedInTf.textProperty().unbindBidirectional(oldUserStory.plannedInProperty());
+        plannedInCb.valueProperty().unbindBidirectional(oldUserStory.plannedInProperty());
         estimationTf.textProperty().unbindBidirectional(oldUserStory.estimationProperty());
         statusCb.valueProperty().unbindBidirectional(oldUserStory.statusProperty());
       }
@@ -51,7 +55,7 @@ public class DetailsViewerUserStory extends GridPane {
         assigneeTf.clear();
         teamTf.clear();
         authorTf.clear();
-        plannedInTf.clear();
+        plannedInCb.getSelectionModel().clearSelection();
         estimationTf.clear();
         statusCb.getSelectionModel().clearSelection();
 
@@ -63,7 +67,7 @@ public class DetailsViewerUserStory extends GridPane {
         assigneeTf.textProperty().bindBidirectional(newUserStory.assigneeProperty());
         teamTf.textProperty().bindBidirectional(newUserStory.teamProperty());
         authorTf.textProperty().bindBidirectional(newUserStory.authorProperty());
-        plannedInTf.textProperty().bindBidirectional(newUserStory.plannedInProperty());
+        plannedInCb.valueProperty().bindBidirectional(newUserStory.plannedInProperty());
         estimationTf.textProperty().bindBidirectional(newUserStory.estimationProperty());
         statusCb.valueProperty().bindBidirectional(newUserStory.statusProperty());
       }
@@ -80,28 +84,53 @@ public class DetailsViewerUserStory extends GridPane {
     beschreibungTf = new JFXTextArea();
     priorityTf = new DoubleTextField();
     severityCb = new JFXComboBox<>(FXCollections.observableArrayList(SchweregradEnum.values()));
+    severityCb.getStyleClass().add("table-combo-box");
     assigneeTf = new JFXTextField();
     teamTf = new JFXTextField();
     authorTf = new JFXTextField();
-    plannedInTf = new JFXTextField();
+    plannedInCb = new JFXComboBox<>(FXCollections.observableArrayList(IterationEnum.values()));
+    plannedInCb.getStyleClass().add("table-combo-box");
     estimationTf = new IntegerTextField();
     statusCb = new JFXComboBox<>(FXCollections.observableArrayList(UserStoryStatusEnum.values()));
+    statusCb.getStyleClass().add("table-combo-box");
 
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Titel: "), nameTf), 0, 0);
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Author: "), authorTf), 1, 0);
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Abschätzung: "),estimationTf), 2, 0);
+    ColumnConstraints col1 = new ColumnConstraints();
+    col1.setPercentWidth(35);
+    ColumnConstraints col2 = new ColumnConstraints();
+    col2.setPercentWidth(35);
+    ColumnConstraints col3 = new ColumnConstraints();
+    col3.setPercentWidth(30);
+    getColumnConstraints().addAll(col1, col2, col3);
 
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Status: "),statusCb), 0, 1);
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Verantwortlicher: "),assigneeTf), 1, 1);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Titel:"), nameTf), 0, 0);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Author:"), authorTf), 1, 0);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Abschätzung:"), estimationTf), 2, 0);
 
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Schweregrad: "),severityCb), 0, 2);
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Team: "),teamTf), 1, 2);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Status:"), statusCb), 0, 1);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Verantwortlicher:"), assigneeTf), 1, 1);
 
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Priorität: "),priorityTf), 0, 3);
-    add(UIFactory.createCenteredHBoxContainer(UIFactory.createFormularLabel("Geplant in: "),plannedInTf), 1, 3);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Schweregrad:"), severityCb), 0, 2);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Team:"), teamTf), 1, 2);
 
-    add(UIFactory.createFormularLabel("Beschreibung"), 0, 4, 3, 1);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Priorität:"), priorityTf), 0, 3);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Geplant:"), plannedInCb), 1, 3);
+
+    add(UIFactory.createFormularLabel("Beschreibung:"), 0, 4);
     add(beschreibungTf, 0, 5, 3, 2);
+
+    HBox.setHgrow(nameTf, Priority.ALWAYS);
+    HBox.setHgrow(authorTf, Priority.ALWAYS);
+    HBox.setHgrow(estimationTf, Priority.ALWAYS);
+    HBox.setHgrow(statusCb, Priority.ALWAYS);
+    HBox.setHgrow(assigneeTf, Priority.ALWAYS);
+    HBox.setHgrow(severityCb, Priority.ALWAYS);
+    HBox.setHgrow(teamTf, Priority.ALWAYS);
+    HBox.setHgrow(priorityTf, Priority.ALWAYS);
+    HBox.setHgrow(plannedInCb, Priority.ALWAYS);
+    statusCb.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+    severityCb.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+    plannedInCb.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+
   }
 
   public void setDataModel(DataModelUserStory dataModel) {

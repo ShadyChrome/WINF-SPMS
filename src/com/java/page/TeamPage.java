@@ -3,13 +3,18 @@ package com.java.page;
 import com.java.components.TeamMemberWidget;
 import com.java.controller.DataController;
 import com.java.data.dto.TeamMitgliedDTO;
+import com.java.data.enums.ImagesEnum;
+import com.java.utility.IconFactory;
 import com.java.utility.PropertyFactory;
 import com.java.utility.UIFactory;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 public class TeamPage implements TabPages {
 
@@ -41,7 +46,10 @@ public class TeamPage implements TabPages {
       col++;
     }
 
-    this.scrollPane = UIFactory.createScrollPane(gridPane);
+    VBox formularVBox = UIFactory.createFormularVBox(12, gridPane, new ImageView(IconFactory.getImage(ImagesEnum.RADARCHART)));
+    formularVBox.setAlignment(Pos.CENTER);
+
+    this.scrollPane = UIFactory.createScrollPane(formularVBox);
 
     PropertyFactory.addPropertyChangeListener(evt -> {
       if (evt.getPropertyName().equals(NEW_TEAM_MEMBER_PROPERTY)) {
