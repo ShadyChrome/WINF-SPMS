@@ -38,6 +38,7 @@ public class SwotAnalysePage implements TabPages {
     title.getStyleClass().add("title-formular");
     Label titleDesc = new Label("Mithilfe der SWOT Analyse könnt ihr eure Stärken und Schwächen, Chancen und Risiken herausarbeiten und daraus Strategien entwickeln. Diese helfen euch im Verlaufe des Projekts Fehler zu vermeiden und euer Potential vollständig ausschöpfen zu können (notiert jeweils Stichpunkte).");
     titleDesc.getStyleClass().add("titledesc");
+    titleDesc.setWrapText(true);
 
     JFXTextArea stärkeTa = createFormularTextArea("Hier ausfüllen...");
     JFXTextArea schwächeTa = createFormularTextArea("Hier ausfüllen...");

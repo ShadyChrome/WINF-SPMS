@@ -65,6 +65,7 @@ public class TeamMitgliedPage implements TabPages {
     title.getStyleClass().add("title-formular");
     Label titleDesc = new Label("Stelle dich hier deinen Teammitgliedern vor und helfe Ihnen dabei, dich besser kennenzulernen.");
     titleDesc.getStyleClass().add("titledesc");
+    titleDesc.setWrapText(true);
 
     JFXButton button = new JFXButton("Absenden");
     button.getStyleClass().add("form-button");
