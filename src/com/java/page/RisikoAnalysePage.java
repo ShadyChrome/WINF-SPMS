@@ -32,7 +32,7 @@ public class RisikoAnalysePage implements TabPages {
       container.setSpacing(24);
       container.setPadding(new Insets(12));
 
-      Label title = new Label("SWOT-Analyse");
+      Label title = new Label("Risikoanalyse");
       title.getStyleClass().add("title-formular");
       Label titleDesc = new Label("Nachdem ihr in der SWOT-Analyse bereits erste Risiken eingetragen habt, geht es nun darum alle möglichen Projektrisiken zu betrachten und Maßnahmen zu entwickeln, um diese vermeiden oder vermindern zu können.");
       titleDesc.getStyleClass().add("titledesc");
@@ -81,7 +81,7 @@ public class RisikoAnalysePage implements TabPages {
         }
       });
 
-      container.getChildren().addAll(title, titleDesc, infoBox, tableViewRisiko);//, UIFactory.createHBoxContainer(12, 0, addName, addButton, deleteButton));
+      container.getChildren().addAll(title, titleDesc, infoBox, tableViewRisiko, UIFactory.createHBoxContainer(12, 0, addName, addButton, deleteButton));
     }
 
     return scrollPane;
