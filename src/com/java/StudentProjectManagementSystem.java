@@ -1,7 +1,9 @@
 package com.java;
 
 import com.java.controller.DataController;
+import com.java.data.enums.ImagesEnum;
 import com.java.page.MainPage;
+import com.java.utility.IconFactory;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ public class StudentProjectManagementSystem extends Application {
     primaryStage.setMinWidth(1280);
     primaryStage.setWidth(1280);
     primaryStage.show();
+    primaryStage.getIcons().add(IconFactory.getImage(ImagesEnum.LOGO));
     scene.getRoot().requestFocus();
   }
 }

@@ -47,7 +47,7 @@ public class InboxPage implements TabPages {
       @Override
       public void handle(MouseEvent event) {
         if (event.getClickCount() > 1) {
-          dialog.setContent(createNachrichtDialog(listView.getSelectionModel().getSelectedItem()));
+          dialog.setContent(createNachrichtDialog(listView.getSelectionModel().getSelectedItem(), dialog, listView));
           dialog.show();
         }
       }
@@ -55,7 +55,7 @@ public class InboxPage implements TabPages {
     return root;
   }
 
-  private Region createNachrichtDialog(NachrichtDTO dto) {
+  private Region createNachrichtDialog(NachrichtDTO dto, JFXDialog dialog, JFXListView<NachrichtDTO> listView) {
     Label absenderLbl = UIFactory.createFormularSubtitle("VON: " + dto.getAbsender());
 
     Label betreffLbl = UIFactory.createFormularLabel("Betreff: " + dto.getBetreff(), true);
@@ -98,11 +98,22 @@ public class InboxPage implements TabPages {
     faqCb.setCheckedColor(Color.web("rgb(24, 38, 119)"));
 
     JFXButton replyBtn = new JFXButton("Antworten");
+    replyBtn.getStyleClass().add("form-button");
     JFXButton deleteBtn = new JFXButton("Löschen");
+    deleteBtn.getStyleClass().add("form-button");
+
+    replyBtn.setOnAction(event -> dialog.close());
+    deleteBtn.setOnAction(event -> {
+      dialog.close();
+      listView.getItems().remove(dto);
+    });
 
     HBox btnContainer = UIFactory.createHBoxContainer(12, 0, replyBtn, deleteBtn);
     btnContainer.setAlignment(Pos.CENTER);
-    root.getChildren().addAll(faqCb, btnContainer);
+    if (DataController.getINSTANCE().isDozent()) {
+      root.getChildren().add(faqCb);
+    }
+    root.getChildren().add(btnContainer);
 
     return root;
   }

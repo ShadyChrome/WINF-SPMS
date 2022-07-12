@@ -64,8 +64,8 @@ public class DataController {
 
   private List<NachrichtDTO> nachrichtenList = FXCollections.observableArrayList(
       new NachrichtDTO("Leopold Thor", "Max Mustermann", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null),
-      new NachrichtDTO("Jean Pierre", "Leila Schmidt", "FAQ", FragenStyleEnum.CHECK_BOX, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
-      new NachrichtDTO("Max Mustermann", "Jean Pierre", "FAQ", FragenStyleEnum.RADIUS_BUTTON, "Wo finde ich die FAQ Seite?", Arrays.asList("Test 1", "Test 2", "Test 3")),
+      new NachrichtDTO("Jean Pierre", "Leila Schmidt", "FAQ", FragenStyleEnum.CHECK_BOX, "Welche Themen soll ich für die Risikoanalyse bearbeiten?", Arrays.asList("Risiken", "Schwächen", "Stärken", "Schwächen")),
+      new NachrichtDTO("Max Mustermann", "Jean Pierre", "FAQ", FragenStyleEnum.RADIUS_BUTTON, "Wäre es in Ordnung, wenn ich die Einsendeaufgabe 1 einen Tag später abgebe?", Arrays.asList("Ja", "Nein")),
       new NachrichtDTO("Leila Schmidt", "Maria Löwe", "FAQ", FragenStyleEnum.FREI_TEXT, "Wo finde ich die FAQ Seite?", null)
   );
 

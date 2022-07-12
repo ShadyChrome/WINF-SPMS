@@ -74,6 +74,12 @@ public class UIFactory {
     return label;
   }
 
+  public static Label createFormularSubSubtitle(String text) {
+    Label label = new Label(text);
+    label.getStyleClass().add("subsubtitle-formular");
+    return label;
+  }
+
   public static Label createFormularLabel(String text) {
     return createFormularLabel(text, false);
   }
