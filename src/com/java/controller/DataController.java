@@ -291,7 +291,15 @@ public class DataController {
   }
 
   public ObservableList<UserStoryDTO> getUserStoryList() {
-    return getTeamUserStoryMap().get(getActiveTeam());
+    if (DataController.getINSTANCE().isDozent()) {
+      ObservableList<UserStoryDTO> list = FXCollections.observableArrayList();
+      for (ObservableList<UserStoryDTO> value : getTeamUserStoryMap().values()) {
+        list.addAll(value);
+      }
+      return list;
+    } else {
+      return getTeamUserStoryMap().get(getActiveTeam());
+    }
   }
 
   public ObservableList<UserStoryDTO> getUserStoryList(TeamDTO teamDTO) {
