@@ -27,7 +27,7 @@ public class TableViewUserStory extends TableView<UserStoryDTO> {
     getColumns().addAll(createTableColumns());
 
     setFixedCellSize(36);
-    prefHeightProperty().bind(this.fixedCellSizeProperty().multiply(Bindings.size(this.getItems()).add(5)));
+    prefHeightProperty().bind(this.fixedCellSizeProperty().multiply(Bindings.size(this.getItems()).add(10)));
     minHeightProperty().bind(this.prefHeightProperty());
     maxHeightProperty().bind(this.prefHeightProperty());
   }

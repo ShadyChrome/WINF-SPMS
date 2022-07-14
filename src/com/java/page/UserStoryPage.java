@@ -71,7 +71,7 @@ public class UserStoryPage implements TabPages {
       }
     });
 
-    Label title = new Label("User Stories von " + DataController.getINSTANCE().getActiveTeam());
+    Label title = new Label("User Stories von " + (DataController.getINSTANCE().isDozent() ? "allen Teams" :DataController.getINSTANCE().getActiveTeam()));
     title.getStyleClass().add("title-formular");
 
     HBox hBoxContainer = createHBoxContainer(12, 0, addName, addButton, deleteButton);
