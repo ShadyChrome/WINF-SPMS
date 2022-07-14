@@ -321,6 +321,7 @@ public class DataController {
   public void addUserStory(String name) {
     UserStoryDTO dto = new UserStoryDTO(name);
     dto.setAuthor(DataController.getINSTANCE().getActiveUser());
+    dto.setTeam(DataController.getINSTANCE().getActiveTeam().toString());
     List<UserStoryDTO> userStoryDTOS = getTeamUserStoryMap().get(getActiveTeam());
     userStoryDTOS.add(dto);
   }

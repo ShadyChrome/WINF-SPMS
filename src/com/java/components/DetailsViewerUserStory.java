@@ -103,7 +103,7 @@ public class DetailsViewerUserStory extends GridPane {
     getColumnConstraints().addAll(col1, col2, col3);
 
     add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Titel:"), nameTf), 0, 0);
-    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Author:"), authorTf), 1, 0);
+    add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Autor:"), authorTf), 1, 0);
     add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Abschätzung:"), estimationTf), 2, 0);
 
     add(UIFactory.createHBoxContainer(12, 0, UIFactory.createFormularLabel("Status:"), statusCb), 0, 1);
